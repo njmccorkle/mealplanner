@@ -1,0 +1,16 @@
+{% extends "main.html" %}
+
+
+{% block content %}
+    <div class="card">
+        <div class="card-header card-header-secondary">
+            <h4 class="card-title">Products</h4>
+            <a href="{% url 'menu:create_menu' %}">Add a menu</a>
+        </div>
+        <ul>
+            {% for menu in menus %}
+                <li class="card-body">{{ menu }} | <a href="{% url 'menu:update_menu' menu.id %}">Edit</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

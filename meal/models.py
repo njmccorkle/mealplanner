@@ -23,4 +23,4 @@ class MealDefinition(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     # modified_by = models.ForeignKey(User)
     def __str__(self):
-        return f"{self.meal_type} - {self.food_type}"
+        return f"{self.meal_id} - {self.food_type}"

@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+{% block content %}
+
+<a href="{% url "create-food" %}">Add new food</a><br>
+<a href="{% url "create-foodtype" %}">Add new food type</a>
+{% regroup foods by food_type_id as foods_by_type %}
+{% for type in foods_by_type %}
+<h1>{{ type.grouper }}</h1>
+{% for food in type.list %}
+<p>{{food.name}} <a href="{% url "edit-food" food.id %}">Edit</a>
+
+</p>
+{% endfor %}
+{% endfor %}
+{% endblock content %}

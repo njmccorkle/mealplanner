@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>{{ title }}</h1>
+{% block delete %}
+{% if food %} <a href="{% url "delete-food" food.id %}">Delete this food</a> {% endif %}
+{% endblock %}
+{% load crispy_forms_tags %}
+{% crispy form %}
+{% comment %}
+<div>
+  <form method="POST" action="">
+    {% csrf_token %} {{ form.as_p }}
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+{% endcomment %}
+{% endblock content %}
