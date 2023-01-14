@@ -1,36 +1,38 @@
 {% extends "main.html" %}
 {% block content %}
-    <h1>Home Template</h1>
+
+
+<a href="{% url "create-menu" %}">Create menu</a><br>
+<a href="{% url "create-menumeal" %}">Create menu meal</a><br>
+<a href="{% url "create-menumealitem" %}">Create menu meal item</a><br>
+<h1>This week's meals</h1>
+<hr>
+<div>
     <div>
-        <a href="{% url "create-menu" %}">Create menu</a><br>
-        <a href="{% url "create-menumeal" %}">Create menu meal</a><br>
-        <a href="{% url "create-menumealitem" %}">Create menu meal item</a><br>
-        <a href="{% url "create-food" %}">Create food</a><br>
-        
-        
+        {% for menu in menus %}
         <div>
-            {% for menu in menus %}
-                <div>
-                    <h4>
-                        {{ menu }}
+            <h4>
+                {{ menu }}
 
-                        {% comment %} {{ foodtype.id }} -- <a href="{% url 'foodtype' foodtype.id %}">{{ foodtype.name }}</a> {% endcomment %}
-                    </h4>
+                {% comment %} {{ foodtype.id }} -- <a href="{% url 'foodtype' foodtype.id %}">{{ foodtype.name }}</a>
+                {% endcomment %}
+            </h4>
 
-                    {% for meal in menu.meals.all %}
-                    <h5>
-                        <span>{{ meal }}</span>
-                    </h5>
-                    <ul>
-                    {% for food in meal.foods.all %}
-                        <li>{{ food }} <a href="{% url "update-food" food.food_id.id %}">Update food</a> <a href="{% url "delete-food" food.food_id.id%}">Delete food</a> 
-                            <br>
+            {% for meal in menu.meals.all %}
+            <h5>
+                <span>{{ meal }}</span>
+            </h5>
+            <ul>
+                {% for food in meal.foods.all %}
+                <li>{{ food }} <small><a href="{% url "edit-food" food.food_id.id %}">Edit
+                            food</a></small>
+                    <br>
                     {% endfor %}
-                        </ul>
-                    {% endfor %}
-                    <hr>
-                </div>
+            </ul>
             {% endfor %}
+            <hr>
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% block content %}
+<h1>{{ title }}</h1>
+<form method="POST">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  {{ formset.as_p }}
+  <button>Submit</button>
+</form>
+
+<hr>
+
+<h2>Food</h2>
+{% for f in food %}
+<p>{{ f.name }} - {{ f.food_type }}</p>
+{% endfor %}
+{% endblock content %}

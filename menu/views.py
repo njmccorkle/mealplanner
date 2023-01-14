@@ -3,8 +3,10 @@ from django.contrib import messages
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView
 
-from .models import Menu, MenuMeal, MenuMealItem
-from .forms import MenuForm, MenuMealForm, MenuMealItemForm
+# from .models import Menu, MenuMeal, MenuMealItem
+from .models import Menu, MenuItem
+
+# from .forms import MenuForm, MenuMealForm, MenuMealItemForm
 
 # from .forms import MenuMealFormSet
 
@@ -15,37 +17,37 @@ def home(request):
     return render(request, "menu/home.html", context)
 
 
-def create_menu(request):
-    form = MenuForm()
-    if request.method == "POST":
-        form = MenuForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("create-menumeal")
-    context = {"form": form}
-    return render(request, "menu/menu_form.html", context)
+# def create_menu(request):
+#     form = MenuForm()
+#     if request.method == "POST":
+#         form = MenuForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("create-menumeal")
+#     context = {"form": form}
+#     return render(request, "menu/menu_form.html", context)
 
 
-def create_menumeal(request):
-    form = MenuMealForm()
-    if request.method == "POST":
-        form = MenuMealForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("create-menumealitem")
-    context = {"form": form}
-    return render(request, "menu/menu_form.html", context)
+# def create_menumeal(request):
+#     form = MenuMealForm()
+#     if request.method == "POST":
+#         form = MenuMealForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("create-menumealitem")
+#     context = {"form": form}
+#     return render(request, "menu/menu_form.html", context)
 
 
-def create_menumealitem(request):
-    form = MenuMealItemForm()
-    if request.method == "POST":
-        form = MenuMealItemForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("home")
-    context = {"form": form}
-    return render(request, "menu/menu_form.html", context)
+# def create_menumealitem(request):
+#     form = MenuMealItemForm()
+#     if request.method == "POST":
+#         form = MenuMealItemForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("home")
+#     context = {"form": form}
+#     return render(request, "menu/menu_form.html", context)
 
 
 # def edit_food(request, food_id):

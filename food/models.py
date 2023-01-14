@@ -17,7 +17,7 @@ class FoodType(models.Model):
 class Food(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    food_type_id = models.ForeignKey(
+    food_type = models.ForeignKey(
         FoodType, related_name="foods", on_delete=models.SET_NULL, null=True
     )
     created_datetime = models.DateTimeField(auto_now_add=True)
