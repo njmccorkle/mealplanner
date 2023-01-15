@@ -1,0 +1,12 @@
+<div hx-target="this">
+    <h3>{{ f.name }}</h3><small><a href="{% url "create-food" f.id %}">Manage foods</a></small><br> 
+    <p>Created on: {{ f.created_datetime }}</p>
+    <div>
+        <button hx-get="{% url 'update-foodtype' f.id %}" hx-swap="outerHTML">
+            Update
+        </button>
+        <button hx-post="{% url 'delete-foodtype' f.id %}" hx-swap="outerHTML swap:1s">
+            Delete
+        </button>
+    </div>
+</div>

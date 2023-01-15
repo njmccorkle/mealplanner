@@ -4,11 +4,11 @@
         {% csrf_token %}
         
         {% crispy form %}
-        {% if food %}
-        <button type="submit" hx-post="{% url 'update-food' food.id %}">
+        {% if foodtype %}
+        <button type="submit" hx-post="{% url 'update-foodtype' foodtype.id %}">
             Submit
         </button>
-        <button hx-get="{% url 'detail-food' food.id %}" type="button">
+        <button hx-get="{% url 'detail-foodtype' foodtype.id %}" type="button">
             Cancel
         </button>
         {% else %}

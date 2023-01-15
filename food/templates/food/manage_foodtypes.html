@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <div>
+    <h2>Foodtypes</h2>
+  </div>
+  <div>
+    <button type="button" hx-get="{% url 'create-foodtype-form' %}" hx-target="#foodtypeforms" hx-swap="beforeend">
+      Add foodtype
+    </button>
+  </div>
+</div>
+
+
+<div id="foodtypeforms"></div>
+
+<div>
+  {% for f in foodtype %}
+
+  {% include "food/partials/foodtype_detail.html" %}
+
+  {% endfor %}
+</div>
+
+{% endblock %}
