@@ -7,3 +7,6 @@ class MealPlannerBaseModel(models.Model):
     modified_datetime = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     # modified_by = models.ForeignKey(User)
+
+    class Meta:
+        abstract = True

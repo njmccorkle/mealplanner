@@ -5,7 +5,7 @@ from .models import Menu, MenuItem
 
 class MenuItemInlineAdmin(admin.TabularInline):
     model = MenuItem
-    fk_name = "the_menu"
+    fk_name = "menu"
 
 
 class MenuAdmin(admin.ModelAdmin):

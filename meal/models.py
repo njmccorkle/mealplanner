@@ -1,26 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import User
 from food.models import FoodType
+from base.models import MealPlannerBaseModel
 
-
-class Meal(models.Model):
+# defines the meals that will be planned - supper, lunch, breakfast, dinner, etc
+class Meal(MealPlannerBaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    created_datetime = models.DateTimeField(auto_now_add=True)
-    modified_datetime = models.DateTimeField(auto_now=True)
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    # modified_by = models.ForeignKey(User)
+
     def __str__(self):
         return self.name
 
 
-class MealDefinition(models.Model):
-    meal_id = models.ForeignKey(Meal, on_delete=models.SET_NULL, null=True)
-    food_type = models.ForeignKey(FoodType, on_delete=models.SET_NULL, null=True)
+# assigns foodtypes that should make up a meal
+class MealItems(MealPlannerBaseModel):
+    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, null=True)
+    foodtype = models.ForeignKey(FoodType, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField(default=1)
-    created_datetime = models.DateTimeField(auto_now_add=True)
-    modified_datetime = models.DateTimeField(auto_now=True)
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    # modified_by = models.ForeignKey(User)
+
     def __str__(self):
-        return f"{self.meal_id} - {self.food_type}"
+        return f"{self.meal_id} - {self.foodtype}"

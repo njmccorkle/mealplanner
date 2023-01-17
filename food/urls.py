@@ -1,5 +1,4 @@
 from django.urls import path
-from django.http import HttpResponse
 from django.views.generic import TemplateView
 from . import views
 
@@ -10,6 +9,11 @@ urlpatterns = [
     path("htmx/food/<int:pk>/update/", views.update_food, name="update-food"),
     path("htmx/food/<int:pk>/delete/", views.delete_food, name="delete-food"),
     path("htmx/create-food-form/", views.create_food_form, name="create-food-form"),
+    path(
+        "htmx/create-food-form/<int:pk>",
+        views.create_food_form,
+        name="create-food-form",
+    ),
     path("manage_foodtypes/", views.manage_foodtypes, name="manage-foodtypes"),
     path("htmx/foodtype/<int:pk>/", views.detail_foodtype, name="detail-foodtype"),
     path(

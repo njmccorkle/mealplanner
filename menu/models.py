@@ -9,7 +9,7 @@ import calendar
 # A meal for a given menu (day)
 class Menu(MealPlannerBaseModel):
     menu_date = models.DateField()
-    meal_id = models.ForeignKey(
+    meal = models.ForeignKey(
         Meal, related_name="menu_meals", on_delete=models.SET_NULL, null=True
     )
 
@@ -20,13 +20,13 @@ class Menu(MealPlannerBaseModel):
 
 # The foods chosen for a meal on a menu
 class MenuItem(MealPlannerBaseModel):
-    the_menu = models.ForeignKey(
+    menu = models.ForeignKey(
         Menu,
         related_name="foods",
         on_delete=models.CASCADE,
         null=True,
     )
-    food_id = models.ForeignKey(
+    food = models.ForeignKey(
         Food, related_name="menu_foods", on_delete=models.CASCADE, null=True
     )
 

@@ -1,29 +1,22 @@
 from django.db import models
 from django.contrib.auth.models import User
+from base.models import MealPlannerBaseModel
 
 
-class FoodType(models.Model):
+class FoodType(MealPlannerBaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    created_datetime = models.DateTimeField(auto_now_add=True)
-    modified_datetime = models.DateTimeField(auto_now=True)
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    # modified_by = models.ForeignKey(User)
 
     def __str__(self):
         return self.name
 
 
-class Food(models.Model):
+class Food(MealPlannerBaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    food_type = models.ForeignKey(
+    foodtype = models.ForeignKey(
         FoodType, related_name="foods", on_delete=models.SET_NULL, null=True
     )
-    created_datetime = models.DateTimeField(auto_now_add=True)
-    modified_datetime = models.DateTimeField(auto_now=True)
-    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    # modified_by = models.ForeignKey(User)
 
     def __str__(self):
         return self.name

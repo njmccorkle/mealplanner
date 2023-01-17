@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django import forms
 from django.http import HttpResponse, HttpResponseNotAllowed
 from .models import Food, FoodType
 from .forms import FoodForm, FoodTypeForm
@@ -7,7 +8,7 @@ from .forms import FoodForm, FoodTypeForm
 def create_food(request, pk):
     foodtype = FoodType.objects.get(id=pk)
     print(f"foodtype = {foodtype}")
-    food = Food.objects.filter(food_type=foodtype)
+    food = Food.objects.filter(foodtype=foodtype)
     print(f"food = {food}")
     print(f"request.post = {request.POST}")
     form = FoodForm(request.POST or None)
@@ -18,7 +19,7 @@ def create_food(request, pk):
         if form.is_valid():
             print("form is valid")
             food = form.save(commit=False)
-            food.food_type = foodtype
+            food.foodtype = foodtype
             food.save()
             return redirect("detail-food", pk=food.id)
         else:
@@ -39,6 +40,8 @@ def update_food(request, pk):
     print(f"request.method is = {request.method}")
     print(f"request.POST is = {request.POST}")
     form = FoodForm(request.POST or None, instance=food)
+    form.fields["foodtype"].widget = forms.HiddenInput()
+    form.fields["foodtype"].initial = food.foodtype
 
     if request.method == "POST":
         print("posting")
@@ -73,8 +76,11 @@ def detail_food(request, pk):
     return render(request, "food/partials/food_detail.html", context)
 
 
-def create_food_form(request):
+def create_food_form(request, pk=None):
     form = FoodForm()
+    if pk is not None:
+        form.fields["foodtype"].widget = forms.HiddenInput()
+        form.fields["foodtype"].initial = pk
     context = {"form": form}
     return render(request, "food/partials/food_form.html", context)
 
