@@ -1,145 +1,200 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView
-
-# from .models import Menu, MenuMeal, MenuMealItem
+from django.shortcuts import render, redirect, get_object_or_404
+from django import forms
+from django.http import HttpResponse, HttpResponseNotAllowed
 from .models import Menu, MenuItem
-
-# from .forms import MenuForm, MenuMealForm, MenuMealItemForm
-
-# from .forms import MenuMealFormSet
-
-
-def home(request):
-    menus = Menu.objects.all()
-    context = {"menus": menus}
-    return render(request, "menu/home.html", context)
+from .forms import MenuForm, MenuItemForm
+from meal.models import Meal, MealItems
+from food.models import Food, FoodType
 
 
-# def create_menu(request):
-#     form = MenuForm()
-#     if request.method == "POST":
-#         form = MenuForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("create-menumeal")
-#     context = {"form": form}
-#     return render(request, "menu/menu_form.html", context)
+def create_menu_form(request):
+    print(f"---create_menu_form")
+    form = MenuForm()
+    context = {"form": form}
+    return render(request, "menu/partials/menu_form.html", context)
 
 
-# def create_menumeal(request):
-#     form = MenuMealForm()
-#     if request.method == "POST":
-#         form = MenuMealForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("create-menumealitem")
-#     context = {"form": form}
-#     return render(request, "menu/menu_form.html", context)
+def manage_menus(request, pk=None):
+    print(f"---manage_menus")
+    if pk is None:
+        menu = Menu.objects.all()
+    else:
+        menu = Menu.objects.get(id=pk)
+    form = MenuForm(request.POST or None)
+
+    if request.method == "POST":
+        print("posting")
+        if form.is_valid():
+            menu = form.save(commit=False)
+            menu.save()
+            return redirect("detail-menu", pk=menu.id)
+        else:
+            return render(
+                request, "menu/partials/menu_form.html", context={"form": form}
+            )
+
+    context = {"form": form, "menu": menu}
+    return render(request, "menu/manage_menus.html", context)
 
 
-# def create_menumealitem(request):
-#     form = MenuMealItemForm()
-#     if request.method == "POST":
-#         form = MenuMealItemForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("home")
-#     context = {"form": form}
-#     return render(request, "menu/menu_form.html", context)
+def create_menu(request):
+    print(f"---create_menu")
+    if request.method == "POST":
+        form = MenuForm(request.POST)
+        if form.is_valid():
+            newmenu = form.save()
+            mealitems = MealItems.objects.filter(meal=request.POST["meal"])
+            # newmenu.save()
+            for mealitem in mealitems:
+                new = MenuItem()
+                new.created_by = newmenu.created_by
+                new.menu = newmenu
+                new.foodtype = mealitem.foodtype
+                new.save()
+            return redirect("detail-menu", pk=newmenu.id)
+        else:
+            return render(
+                request, "menu/partials/menu_form.html", context={"form": form}
+            )
+
+    # context = {"form": form, "menu": menu}
+    # print("returning manage_menus.html")
+    # return render(request, "menu/manage_menus.html", context)
 
 
-# def edit_food(request, food_id):
-#     food = Food.objects.get(id=food_id)
-#     form = FoodForm(instance=food)
-#     if request.method == "POST":
-#         form = FoodForm(request.POST, instance=food)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("home")
-#     context = {"form": form}
-#     return render(request, "food/food_form.html", context)
+def detail_menu(request, pk):
+    print(f"---detail_menu")
+    menu = get_object_or_404(Menu, id=pk)
+    context = {"m": menu}
+    return render(request, "menu/partials/menu_detail.html", context)
 
 
-# class MenuInline:
-#     form_class = MenuForm
-#     model = Menu
-#     template_name = "menu/menu_create_or_update.html"
+def update_menu(request, pk):
+    print(f"---update_menu")
+    menu = Menu.objects.get(id=pk)
+    form = MenuForm(request.POST or None, instance=menu)
 
-#     def form_valid(self, form):
-#         named_formsets = self.get_named_formsets()
-#         if not all((x.is_valid() for x in named_formsets.values())):
-#             return self.render_to_response(self.get_context_data(form=form))
-#         self.object = form.save()
-#         # for every formset, attempt to find a specific formset save function
-#         # otherwise, just save.
-#         for name, formset in named_formsets.items():
-#             formset_save_func = getattr(self, "formset_{0}_valid".format(name), None)
-#             if formset_save_func is not None:
-#                 formset_save_func(formset)
-#             else:
-#                 formset.save()
-#         return redirect("home")
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect("detail-menu", pk=menu.id)
 
-#     def formset_menumeals_valid(self, formset):
-#         menumeals = formset.save(commit=False)
-#         for obj in formset.deleted_objects:
-#             obj.delete()
-#         for menumeal in menumeals:
-#             menumeal.menu_id = self.object
-#             menumeal.save()
+    context = {"form": form, "menu": menu}
+    return render(request, "menu/partials/menu_form.html", context)
 
 
-# class MenuCreate(MenuInline, CreateView):
-#     def get_context_data(self, **kwargs):
-#         context = super(MenuCreate, self).get_context_data(**kwargs)
-#         context["named_formsets"] = self.get_named_formsets()
-#         return context
+def delete_menu(request, pk):
+    print(f"---delete_menu")
+    menu = get_object_or_404(Menu, id=pk)
 
-#     def get_named_formsets(self):
-#         if self.request.method == "GET":
-#             return {"menumeals": MenuMealFormSet(prefix="menumeals")}
-#         else:
-#             return {
-#                 "menumeals": MenuMealFormSet(
-#                     self.request.POST or None,
-#                     self.request.FILES or None,
-#                     prefix="menumeals",
-#                 )
-#             }
+    if request.method == "POST":
+        menu.delete()
+        return HttpResponse("")
+
+    return HttpResponseNotAllowed(
+        [
+            "POST",
+        ]
+    )
 
 
-# class MenuUpdate(MenuInline, UpdateView):
-#     def get_context_data(self, **kwargs):
-#         context = super(MenuUpdate, self).get_context_data(**kwargs)
-#         context["named_formsets"] = self.get_named_formsets()
-#         return context
+########################################################
+def create_menuitem(request, pk):
+    print(f"---create_menuitem")
+    menu = Menu.objects.get(id=pk)
+    menuitems = MenuItem.objects.filter(menu=menu)
+    form = MenuItemForm(request.POST or None)
 
-#     def get_named_formsets(self):
-#         return {
-#             "menumeals": MenuMealFormSet(
-#                 self.request.POST or None,
-#                 self.request.FILES or None,
-#                 instance=self.object,
-#                 prefix="menumeals",
-#             )
-#         }
+    if request.method == "POST":
+        if form.is_valid():
+            menuitem = form.save(commit=False)
+            menuitem.menu = menu
+            menuitem.foodtype = FoodType.objects.get(pk=request.POST.get("foodtype"))
+            menuitem.food = Food.objects.get(pk=request.POST.get("food"))
+            menuitem.save()
+            return redirect("detail-menuitem", pk=menuitem.id)
+        else:
+            return render(
+                request, "menu/partials/menuitem_form.html", context={"form": form}
+            )
+
+    context = {"form": form, "menu": menu, "menuitems": menuitems}
+    return render(request, "menu/create_menuitem.html", context)
 
 
-# class MenuList(ListView):
-#     model = Menu
-#     # template = "menu/menu_list.html"
-#     # context_object_name = "menus"
+def create_menuitem_form(request, pk=None):
+    print(f"-----create_menuitem_form")
+    form = MenuItemForm()
+
+    foodtypes = FoodType.objects.all()
+    if pk is not None:
+        form.fields["menu"].widget = forms.HiddenInput()
+        form.fields["menu"].initial = pk
+    context = {
+        "form": form,
+        "foodtypes": foodtypes,
+    }
+    return render(request, "menu/partials/menuitem_form.html", context)
 
 
-# def delete_menumeal(request, pk):
-#     try:
-#         menumeal = MenuMeal.objects.get(id=pk)
-#     except MenuMeal.DoesNotExist:
-#         messages.success(request, "Object does not exist")
-#         return redirect("menus:update_menu", pk=menumeal.menu_id.id)
-#     menumeal.delete()
-#     messages.success(request, "Menu Meal deleted successfully")
+def update_menuitem(request, pk):
+    print(f"---update_menuitem")
+    menuitem = MenuItem.objects.get(id=pk)
+    form = MenuItemForm(request.POST or None, instance=menuitem)
+    foodtypes = FoodType.objects.all()
+    form.fields["menu"].widget = forms.HiddenInput()
+    form.fields["menu"].initial = pk
+    form.fields["created_by"].widget = forms.HiddenInput()
+    form.fields["created_by"].initial = menuitem.created_by
 
-#     return redirect("menus:update_menu", pk=menumeal.menu_id.id)
+    if menuitem.foodtype is not None:
+        foods = Food.objects.filter(foodtype=menuitem.foodtype)
+
+    if request.method == "POST":
+        print(f"posting")
+        if form.is_valid():
+            print(f"form is valid")
+            form.save()
+            print(f"returning detail-menuitem")
+            return redirect("detail-menuitem", pk=menuitem.id)
+
+    context = {
+        "form": form,
+        "menuitem": menuitem,
+        "foodtypes": foodtypes,
+        "foods": foods,
+        "selected_foodtype": menuitem.foodtype,
+        "selected_food": menuitem.food,
+    }
+    print(f"context = {context}")
+    return render(request, "menu/partials/menuitem_form.html", context)
+
+
+def get_menuitems(request):
+    print(f"---get_menuitems")
+    foodtype = FoodType.objects.get(id=request.GET.get("foodtype"))
+    foods = Food.objects.filter(foodtype=foodtype.id)
+    context = {"foods": foods}
+    return render(request, "menu/partials/menuitem_options.html", context)
+
+
+def delete_menuitem(request, pk):
+    print(f"---delete_menuitem")
+    menuitem = get_object_or_404(MenuItem, id=pk)
+
+    if request.method == "POST":
+        menuitem.delete()
+        return HttpResponse("")
+
+    return HttpResponseNotAllowed(
+        [
+            "POST",
+        ]
+    )
+
+
+def detail_menuitem(request, pk):
+    print(f"---detail_menuitem")
+    menuitem = get_object_or_404(MenuItem, id=pk)
+    context = {"menuitem": menuitem}
+    return render(request, "menu/partials/menuitem_detail.html", context)

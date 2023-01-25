@@ -1,0 +1,50 @@
+{% load crispy_forms_tags %}
+<div hx-target="this" hx-swap="outerHTML">
+    <form method="POST">
+        {% csrf_token %}
+        selected_foodtype = {{selected_foodtype.id}}
+
+        <div id="created_by">{{ form.created_by }}</div>
+        <div id="menu">{{ form.menu }}</div>
+
+        <select class="custom-select mb-4" name="foodtype" hx-get="{% url 'get-menuitems' selected_foodtype.id %}"
+            hx-trigger="load, change" hx-target="#menuitem_options" hx-swap="innerHTML">
+            {% if selected_foodtype.id == None %}
+            <option selected>Select a food type</option>
+            {% endif %}
+            {% for foodtype in foodtypes %}
+            {% if foodtype.id == selected_foodtype.id %}
+            <option selected value="{{foodtype.id}}">{{ foodtype.name }}</option>
+            {% else %}
+            <option value="{{foodtype.id}}">{{ foodtype.name }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+
+        <div id="menuitem_options">
+            {% include 'menu/partials/menuitem_options.html' %}
+        </div>
+        {% comment %} <select class="custom-select mb-4" name="food" hx-get="{% url 'get-menuitems' %}"
+            hx-trigger="load, change" hx-target="#menuitem_options"> {% endcomment %}
+
+        </select>
+        {% comment %} <div id="menuitem_options">
+            {% include 'menu/partials/menuitem_options.html' %}
+        </div> {% endcomment %}
+
+
+        menuitem.id = {{menuitem.id}}
+        {% if menuitem.id != None %}
+        <button type="submit" hx-post="{% url 'update-menuitem' menuitem.id %}">
+            Submit
+        </button>
+        <button hx-get="{% url 'detail-menuitem' menuitem.id %}" type="button">
+            Cancel
+        </button>
+        {% else %}
+        <button type="submit" hx-post=".">
+            Submit
+        </button>
+        {% endif %}
+    </form>
+</div>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <div>
+    <h2>Menus</h2>
+  </div>
+  <div>
+    <button type="button" hx-get="{% url 'create-menu-form' %}" hx-target="#menuforms" hx-swap="beforeend">
+      Add menu
+    </button>
+  </div>
+</div>
+
+
+<div id="menuforms"></div>
+
+<div>
+  {% for m in menu %}
+
+  {% include "menu/partials/menu_detail.html" %}
+
+  {% endfor %}
+</div>
+
+{% endblock %}

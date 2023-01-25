@@ -1,0 +1,14 @@
+<select name="food" class="custom-select mb-4">
+
+    {% if selected_food.id == None %}
+    <option selected value="">---------</option>
+    {% endif %}
+    {% for food in foods %}
+    {% if food.id == selected_food.id %}
+    <option selected value="{{food.id}}">{{ food.name }}</option>
+    {% else %}
+    <option value="{{food.id}}">{{ food.name }}</option>
+    {% endif %}
+    {% endfor %}
+
+</select>
