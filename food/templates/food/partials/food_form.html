@@ -2,17 +2,27 @@
 <div hx-target="this" hx-swap="outerHTML">
     <form method="POST">
         {% csrf_token %}
-        
+
         {% crispy form %}
         {% if food %}
-        <button type="submit" hx-post="{% url 'update-food' food.id %}">
-            Submit
-        </button>
-        <button hx-get="{% url 'detail-food' food.id %}" type="button">
-            Cancel
-        </button>
+        <div class="row">
+            <div class="col-lg-3">
+                <button type="submit" class="btn btn-outline-success btn-sm" hx-post="{% url 'update-food' food.id %}">
+                    Submit
+                </button>
+                <button class="btn btn-outline-warning btn-sm" hx-get="{% url 'detail-food' food.id %}" type="button">
+                    Cancel
+                </button>
+            </div>
+            <div class="col-lg-9">
+                <button class="btn btn-outline-danger btn-sm" hx-post="{% url 'delete-food' food.id %}"
+                    hx-swap="outerHTML swap:1s">
+                    Delete
+                </button>
+            </div>
+        </div>
         {% else %}
-        <button type="submit" hx-post=".">
+        <button type="submit" class="btn btn-outline-success btn-sm" hx-post=".">
             Submit
         </button>
         {% endif %}
