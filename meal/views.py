@@ -52,6 +52,14 @@ def detail_meal(request, pk):
     return render(request, "meal/partials/meal_detail.html", context)
 
 
+def get_mealitems(request, pk):
+    print(f"---get_top_mealitems")
+    meal = Meal.objects.get(id=pk)
+    mealitems = meal.mealitems.all().order_by("foodtype")  # [:4]
+    context = {"mealitems": mealitems}
+    return render(request, "meal/partials/get_mealitems.html", context)
+
+
 def update_meal(request, pk):
     print(f"---update_meal")
     meal = Meal.objects.get(id=pk)
