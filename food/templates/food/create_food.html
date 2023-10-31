@@ -4,10 +4,11 @@
 
 <div>
   <div>
-    <h2>Create food for {{ foodtype.name }}</h2>
+    <h1>{{ foodtype.name }} foods</h1>
   </div>
   <div>
-    <button type="button" hx-post="{% url 'create-food-form' foodtype.id %}" hx-target="#foodforms" hx-swap="beforeend">
+    <button type="button" class="btn btn-outline-primary btn-sm" hx-post="{% url 'create-food-form' foodtype.id %}"
+      hx-target="#foodforms" hx-swap="beforeend">
       {% comment %} <button type="button" hx-get="{% url 'create-food-form' %}" hx-target="#foodforms"
         hx-swap="beforeend"> {% endcomment %}
         Add food
@@ -15,14 +16,13 @@
   </div>
 </div>
 
-
 <div id="foodforms"></div>
 
-<div>
+<div class="container">
   {% for f in food %}
 
   {% include "food/partials/food_detail.html" %}
-
+  <div class="row mt-3"></div>
   {% endfor %}
 </div>
 

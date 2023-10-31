@@ -27,4 +27,9 @@ urlpatterns = [
     path(
         "htmx/foodtype/<int:pk>/delete/", views.delete_foodtype, name="delete-foodtype"
     ),
+    path(
+        "htmx/foodtype/foodtype-top-foods/<int:pk>",
+        views.get_top_foods,
+        name="foodtype-top-foods",
+    ),
 ]

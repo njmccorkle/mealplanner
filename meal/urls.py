@@ -29,4 +29,9 @@ urlpatterns = [
         name="create-meal-form",
     ),
     path("htmx/meal/<int:pk>/delete/", views.delete_meal, name="delete-meal"),
+    path(
+        "htmx/meal/get-mealitems/<int:pk>",
+        views.get_mealitems,
+        name="get-mealitems",
+    ),
 ]

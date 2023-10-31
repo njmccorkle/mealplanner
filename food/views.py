@@ -131,6 +131,14 @@ def detail_foodtype(request, pk):
     return render(request, "food/partials/foodtype_detail.html", context)
 
 
+def get_top_foods(request, pk):
+    print(f"---get_top_foods")
+    foodtype = FoodType.objects.get(id=pk)
+    topfoods = foodtype.foods.all().order_by("name")  # [:4]
+    context = {"topfoods": topfoods}
+    return render(request, "food/partials/foodtype_top_foods.html", context)
+
+
 def update_foodtype(request, pk):
     print(f"---update_foodtype")
     foodtype = FoodType.objects.get(id=pk)

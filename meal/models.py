@@ -14,7 +14,9 @@ class Meal(MealPlannerBaseModel):
 
 # assigns foodtypes that should make up a meal
 class MealItems(MealPlannerBaseModel):
-    meal = models.ForeignKey(Meal, on_delete=models.CASCADE, null=True)
+    meal = models.ForeignKey(
+        Meal, related_name="mealitems", on_delete=models.CASCADE, null=True
+    )
     foodtype = models.ForeignKey(FoodType, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField(default=1)
 
