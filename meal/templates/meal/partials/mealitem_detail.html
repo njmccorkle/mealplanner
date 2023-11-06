@@ -1,12 +1,24 @@
 <div hx-target="this">
-    <h3>Meal Item Name: {{ mi.foodtype }}</h3>
-    <p>Created on: {{ mi.created_datetime }}</p>
-    <div>
-        <button hx-get="{% url 'update-mealitem' mi.id %}" hx-swap="outerHTML">
-            Update
-        </button>
-        <button hx-post="{% url 'delete-mealitem' mi.id %}" hx-swap="outerHTML swap:1s">
-            Delete
-        </button>
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>{{ mi.foodtype }}</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-1"></div>
+        {% comment %} <div class="col-lg-3">
+            <div class="row">
+                <p>Created: {{ mi.created_datetime }}</p><br>
+            </div>
+            <div class="row">
+                <p>Modified: {{ mi.modified_datetime }}</p>
+            </div>
+        </div> {% endcomment %}
+        <div class="col-lg-8">
+            <button class="btn btn-link" hx-get="{% url 'update-foodtype' mi.id %}" hx-swap="outerHTML">
+                Edit settings for {{ mi.foodtype }}
+            </button>
+        </div>
     </div>
 </div>
