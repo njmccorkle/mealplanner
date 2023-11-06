@@ -4,14 +4,14 @@
 
 <div>
   <div>
-    <h2>Create meal item for {{ meal.name }}</h2>
+    <h2>{{ meal.name }} meal items</h2>
   </div>
   <div>
     <button type="button" hx-post="{% url 'create-mealitem-form' meal.id%}" hx-target="#mealitemforms"
       hx-swap="beforeend">
       {% comment %} <button type="button" hx-get="{% url 'create-mealitem-form' %}" hx-target="#mealitemforms"
         hx-swap="beforeend"> {% endcomment %}
-        Add food
+        Add meal item
       </button>
   </div>
 </div>
@@ -19,7 +19,7 @@
 
 <div id="mealitemforms"></div>
 
-<div>
+<div class="container">
   {% for mi in mealitem %}
 
   {% include "meal/partials/mealitem_detail.html" %}
