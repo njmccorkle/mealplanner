@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "crispy_forms",
     "bootstrap4",
+    "rest_framework",
     "base.apps.BaseConfig",
     "food.apps.FoodConfig",
     "meal.apps.MealConfig",
@@ -85,16 +86,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "mealplanner",
-#         "USER": "mealplanner",
-#         "HOST": "docker.mccorkle.co",
-#         "PORT": "6033",  # 3306 is correct port when mysql isn't behind traefik
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
