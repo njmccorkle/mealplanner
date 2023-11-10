@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <h1>{{ food.name }}</h1>
+</div>
+
+Description: {{ food.description }} <br>
+Foodtype: {{ food.foodtype }} <br>
+Created by: {{ food.created_by }} <br>
+Created datetime: {{ food.created_datetime }} <br>
+Modified datetime: {{ food.modified_datetime }} <br>
+
+{% endblock %}

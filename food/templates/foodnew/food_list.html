@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+  <h1>All food</h1>
+</div>
+
+{% if food_list %}
+<ul>
+  {% for food in food_list %}
+  <li>{{ food.name }} - {{ food.foodtype }} </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No food in the database</p>
+{% endif %}
+
+{% endblock %}

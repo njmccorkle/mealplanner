@@ -2,6 +2,7 @@ from django.urls import path, include
 from rest_framework import routers
 from .views import *
 from .apiviews import *
+from .viewsnew import *
 
 from django.views.generic import TemplateView
 
@@ -36,4 +37,6 @@ urlpatterns = [
         name="foodtype-top-foods",
     ),
     path("api/", include(router.urls)),
+    path("food/", FoodListView.as_view(), name="food-list"),
+    path("food/<int:pk>", FoodDetalView.as_view(), name="food-detail"),
 ]
