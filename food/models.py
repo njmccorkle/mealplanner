@@ -7,6 +7,9 @@ class FoodType(MealPlannerBaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
 
+    class Meta:
+        ordering = ["name"]
+
     def __str__(self):
         return self.name
 
@@ -17,6 +20,9 @@ class Food(MealPlannerBaseModel):
     foodtype = models.ForeignKey(
         FoodType, related_name="foods", on_delete=models.SET_NULL, null=True
     )
+
+    class Meta:
+        ordering = ["name"]
 
     def __str__(self):
         return self.name

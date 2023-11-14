@@ -10,7 +10,7 @@ router.register(r"foodtype", FoodTypeViewSet)
 router.register(r"food", FoodViewSet)
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="food/home.html"), name="create-food"),
+    # path("", TemplateView.as_view(template_name="food/home.html"), name="create-food"),
     path("<int:pk>/", create_food, name="create-food"),
     path("htmx/food/<int:pk>/", detail_food, name="detail-food"),
     path("htmx/food/<int:pk>/update/", update_food, name="update-food"),
@@ -35,5 +35,6 @@ urlpatterns = [
         get_top_foods,
         name="foodtype-top-foods",
     ),
-    path("api/", include(router.urls)),
+    path("", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
