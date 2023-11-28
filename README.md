@@ -1,12 +1,11 @@
 # Setup
 ```
-python.exe -m venv .venv
+python -m venv .venv
 . .\.venv\Scripts\activate
-python.exe -m pip install --upgrade pip
-pip install -r requirements.txt
-python .\manage.py migrate
-python .\manage.py createsuperuser
-python .\manage.py runserver
+python -m pip install --upgrade pip && pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser --username admin --email email@email.com --skip-checks
+python manage.py runserver
 
 ```
 
@@ -14,9 +13,9 @@ python .\manage.py runserver
 `pip freeze > .\requirements.txt`
 
 # Dump data from Django DB
-`python.exe .\manage.py dumpdata --exclude=auth --exclude=sessions --exclude=contenttypes --exclude=admin --output .\sample_data\sample_data.json`
+`python .\manage.py dumpdata --exclude=auth --exclude=sessions --exclude=contenttypes --exclude=admin --output .\sample_data\sample_data.json`
 # Load data to Django DB
-`python.exe .\manage.py loaddata .\sample_data\sample_data.json`
+`python .\manage.py loaddata .\sample_data\sample_data.json`
 
 
 # YOLO upgrading all packages
