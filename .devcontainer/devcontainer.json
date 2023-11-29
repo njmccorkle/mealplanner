@@ -7,6 +7,16 @@
 	"features": {
 		"ghcr.io/akhildevelops/devcontainer-features/pip:0": {}
 	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"alexcvzz.vscode-sqlite"
+			]
+		}
+	},
+	{
+		"ghcr.io/jungaretti/features/make:1": {}
+	}
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

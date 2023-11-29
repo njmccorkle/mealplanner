@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from base.models import MealPlannerBaseModel
 
 
-class Course(MealPlannerBaseModel):
+class CourseDef(MealPlannerBaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
 
@@ -11,11 +11,11 @@ class Course(MealPlannerBaseModel):
         return self.name
 
 
-class Food(MealPlannerBaseModel):
+class FoodDef(MealPlannerBaseModel):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)
-    foodtype = models.ForeignKey(
-        Course, related_name="foods", on_delete=models.SET_NULL, null=True
+    course = models.ForeignKey(
+        CourseDef, related_name="foods", on_delete=models.SET_NULL, null=True
     )
 
     def __str__(self):

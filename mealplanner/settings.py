@@ -42,9 +42,9 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "rest_framework",
     "base.apps.BaseConfig",
-    "food.apps.FoodConfig",
-    "meal.apps.MealConfig",
-    "menu.apps.MenuConfig",
+    "food.apps.FoodDefConfig",
+    # "meal.apps.MealConfig",
+    # "menu.apps.MenuConfig",
 ]
 
 MIDDLEWARE = [

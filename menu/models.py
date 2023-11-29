@@ -1,7 +1,7 @@
 from django.db import models
 from base.models import MealPlannerBaseModel
 from meal.models import Meal
-from food.models import Food, Course
+from food.models import FoodDef, CourseDef
 import calendar
 
 
@@ -32,7 +32,7 @@ class MenuItem(MealPlannerBaseModel):
         on_delete=models.CASCADE,
         null=True,
     )
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    course = models.ForeignKey(CourseDef, on_delete=models.CASCADE, null=True)
     food = models.ForeignKey(
         Food, related_name="food", on_delete=models.CASCADE, null=True
     )

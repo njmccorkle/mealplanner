@@ -6,11 +6,11 @@ from .apiviews import *
 from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
-router.register(r"courseDef", CourseDefViewSet)
-router.register(r"foodDef", FoodDefViewSet)
+router.register(r"course", CourseViewSet)
+router.register(r"food", FoodViewSet)
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="food/home.html")),
+    # path("", TemplateView.as_view(template_name="food/home.html"), name="create-food"),
     # path("<int:pk>/", create_food, name="create-food"),
     # path("htmx/food/<int:pk>/", detail_food, name="detail-food"),
     # path("htmx/food/<int:pk>/update/", update_food, name="update-food"),

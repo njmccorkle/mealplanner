@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from food.models import Course
+from food.models import CourseDef
 from base.models import MealPlannerBaseModel
 
 
@@ -18,7 +18,7 @@ class MealItems(MealPlannerBaseModel):
     meal = models.ForeignKey(
         Meal, related_name="mealitems", on_delete=models.CASCADE, null=True
     )
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    course = models.ForeignKey(CourseDef, on_delete=models.CASCADE, null=True)
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
