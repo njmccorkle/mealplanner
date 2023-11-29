@@ -1,16 +1,15 @@
 from django.urls import path, include
 from rest_framework import routers
-from .views import *
-from .apiviews import *
+from . import views, apiviews
 
 from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
-router.register(r"courseDef", CourseDefViewSet)
-router.register(r"foodDef", FoodDefViewSet)
+router.register(r"courseDef", apiviews.CourseDefViewSet)
+router.register(r"foodDef", apiviews.FoodDefViewSet)
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="food/home.html")),
+    # path("", TemplateView.as_view(template_name="food/home.html")),
     # path("<int:pk>/", create_food, name="create-food"),
     # path("htmx/food/<int:pk>/", detail_food, name="detail-food"),
     # path("htmx/food/<int:pk>/update/", update_food, name="update-food"),
@@ -36,4 +35,21 @@ urlpatterns = [
     #     name="course-top-foods",
     # ),
     path("api/", include(router.urls)),
+    path("", views.CourseDefList.as_view(), name="coursedef_list"),
+    path("coursedef/create", views.CourseDefCreate.as_view(), name="coursedef_create"),
+    path(
+        "coursedef-detail/<int:pk>",
+        views.CourseDefDetail.as_view(),
+        name="coursedef_detail",
+    ),
+    path(
+        "coursedef-update/<int:pk>",
+        views.CourseDefUpdate.as_view(),
+        name="coursedef_update",
+    ),
+    path(
+        "coursedef-delete/<int:pk>",
+        views.CourseDefDelete.as_view(),
+        name="coursedef_delete",
+    ),
 ]
