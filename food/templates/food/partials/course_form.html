@@ -4,20 +4,20 @@
         {% csrf_token %}
 
         {% crispy form %}
-        {% if foodtype %}
+        {% if course %}
         <div class="row">
             <div class="col-lg-3">
                 <button type="submit" class="btn btn-outline-success btn-sm"
-                    hx-post="{% url 'update-foodtype' foodtype.id %}">
+                    hx-post="{% url 'update-course' course.id %}">
                     Submit
                 </button>
-                <button class="btn btn-outline-warning btn-sm" hx-get="{% url 'detail-foodtype' foodtype.id %}"
+                <button class="btn btn-outline-warning btn-sm" hx-get="{% url 'detail-course' course.id %}"
                     type="button">
                     Cancel
                 </button>
             </div>
             <div class="col-lg-9">
-                <button class="btn btn-outline-danger btn-sm" hx-post="{% url 'delete-foodtype' foodtype.id %}"
+                <button class="btn btn-outline-danger btn-sm" hx-post="{% url 'delete-course' course.id %}"
                     hx-swap="outerHTML swap:1s">
                     Delete
                 </button>

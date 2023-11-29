@@ -13,9 +13,9 @@ python manage.py runserver
 `pip freeze > .\requirements.txt`
 
 # Dump data from Django DB
-`python .\manage.py dumpdata --exclude=auth --exclude=sessions --exclude=contenttypes --exclude=admin --output .\sample_data\sample_data.json`
+`python manage.py dumpdata --exclude=auth --exclude=sessions --exclude=contenttypes --exclude=admin --output sample_data/sample_data.json`
 # Load data to Django DB
-`python .\manage.py loaddata .\sample_data\sample_data.json`
+`python manage.py loaddata sample_data/sample_data.json`
 
 
 # YOLO upgrading all packages

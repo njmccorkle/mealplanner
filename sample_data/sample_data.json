@@ -1,6 +1,6 @@
 [
     {
-        "model": "food.foodtype",
+        "model": "food.course",
         "pk": 1,
         "fields": {
             "created_datetime": "2023-10-20T04:47:05.183Z",
@@ -11,7 +11,7 @@
         }
     },
     {
-        "model": "food.foodtype",
+        "model": "food.course",
         "pk": 2,
         "fields": {
             "created_datetime": "2023-10-31T03:46:40.882Z",
@@ -22,7 +22,7 @@
         }
     },
     {
-        "model": "food.foodtype",
+        "model": "food.course",
         "pk": 3,
         "fields": {
             "created_datetime": "2023-10-31T03:48:12.862Z",
@@ -33,7 +33,7 @@
         }
     },
     {
-        "model": "food.foodtype",
+        "model": "food.course",
         "pk": 4,
         "fields": {
             "created_datetime": "2023-10-31T03:48:21.773Z",
@@ -433,7 +433,7 @@
             "modified_datetime": "2023-11-05T00:32:55.037Z",
             "created_by": 1,
             "meal": 1,
-            "foodtype": 1,
+            "course": 1,
             "quantity": 1
         }
     },
@@ -445,7 +445,7 @@
             "modified_datetime": "2023-11-05T00:32:58.496Z",
             "created_by": 1,
             "meal": 1,
-            "foodtype": 3,
+            "course": 3,
             "quantity": 1
         }
     },
@@ -457,7 +457,7 @@
             "modified_datetime": "2023-11-05T00:33:08.155Z",
             "created_by": 1,
             "meal": 1,
-            "foodtype": 4,
+            "course": 4,
             "quantity": 1
         }
     },
@@ -469,7 +469,7 @@
             "modified_datetime": "2023-11-05T04:19:32.363Z",
             "created_by": 1,
             "meal": 1,
-            "foodtype": 2,
+            "course": 2,
             "quantity": 1
         }
     },
@@ -492,7 +492,7 @@
             "modified_datetime": "2023-11-06T06:10:54.750Z",
             "created_by": 1,
             "menu": 1,
-            "foodtype": 1,
+            "course": 1,
             "food": 1
         }
     }

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Food, FoodType
+from .models import Food, Course
 from crispy_forms.helper import FormHelper
 
 
@@ -15,9 +15,9 @@ class FoodForm(forms.ModelForm):
         self.helper.disable_csrf = True  # no need, request is sent via htmx
 
 
-class FoodTypeForm(forms.ModelForm):
+class CourseForm(forms.ModelForm):
     class Meta:
-        model = FoodType
+        model = Course
         fields = "__all__"
 
     def __init__(self, *args, **kwargs):

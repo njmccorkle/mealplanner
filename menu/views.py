@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseNotAllowed
 from .models import Menu, MenuItem
 from .forms import MenuForm, MenuItemForm
 from meal.models import Meal, MealItems
-from food.models import Food, FoodType
+from food.models import Food, Course
 
 
 def create_menu_form(request):
@@ -49,7 +49,7 @@ def create_menu(request):
                 new = MenuItem()
                 new.created_by = newmenu.created_by
                 new.menu = newmenu
-                new.foodtype = mealitem.foodtype
+                new.course = mealitem.course
                 new.save()
             return redirect("detail-menu", pk=newmenu.id)
         else:
@@ -109,7 +109,7 @@ def create_menuitem(request, pk):
         if form.is_valid():
             menuitem = form.save(commit=False)
             menuitem.menu = menu
-            menuitem.foodtype = FoodType.objects.get(pk=request.POST.get("foodtype"))
+            menuitem.course = Course.objects.get(pk=request.POST.get("course"))
             menuitem.food = Food.objects.get(pk=request.POST.get("food"))
             menuitem.save()
             return redirect("detail-menuitem", pk=menuitem.id)
@@ -126,13 +126,13 @@ def create_menuitem_form(request, pk=None):
     print(f"-----create_menuitem_form")
     form = MenuItemForm()
 
-    foodtypes = FoodType.objects.all()
+    courses = Course.objects.all()
     if pk is not None:
         form.fields["menu"].widget = forms.HiddenInput()
         form.fields["menu"].initial = pk
     context = {
         "form": form,
-        "foodtypes": foodtypes,
+        "courses": courses,
     }
     return render(request, "menu/partials/menuitem_form.html", context)
 
@@ -141,14 +141,14 @@ def update_menuitem(request, pk):
     print(f"---update_menuitem")
     menuitem = MenuItem.objects.get(id=pk)
     form = MenuItemForm(request.POST or None, instance=menuitem)
-    foodtypes = FoodType.objects.all()
+    courses = Course.objects.all()
     form.fields["menu"].widget = forms.HiddenInput()
     form.fields["menu"].initial = pk
     form.fields["created_by"].widget = forms.HiddenInput()
     form.fields["created_by"].initial = menuitem.created_by
 
-    if menuitem.foodtype is not None:
-        foods = Food.objects.filter(foodtype=menuitem.foodtype)
+    if menuitem.course is not None:
+        foods = Food.objects.filter(course=menuitem.course)
 
     if request.method == "POST":
         print(f"posting")
@@ -161,9 +161,9 @@ def update_menuitem(request, pk):
     context = {
         "form": form,
         "menuitem": menuitem,
-        "foodtypes": foodtypes,
+        "courses": courses,
         "foods": foods,
-        "selected_foodtype": menuitem.foodtype,
+        "selected_course": menuitem.course,
         "selected_food": menuitem.food,
     }
     print(f"context = {context}")
@@ -172,8 +172,8 @@ def update_menuitem(request, pk):
 
 def get_menuitems(request):
     print(f"---get_menuitems")
-    foodtype = FoodType.objects.get(id=request.GET.get("foodtype"))
-    foods = Food.objects.filter(foodtype=foodtype.id)
+    course = Course.objects.get(id=request.GET.get("course"))
+    foods = Food.objects.filter(course=course.id)
     context = {"foods": foods}
     return render(request, "menu/partials/menuitem_options.html", context)
 

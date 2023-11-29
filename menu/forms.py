@@ -1,6 +1,6 @@
 from django import forms
 from .models import Menu, MenuItem
-from food.models import Food, FoodType
+from food.models import Food, Course
 from crispy_forms.helper import FormHelper
 from django.contrib.auth.models import User
 
@@ -26,14 +26,14 @@ class MenuForm(forms.ModelForm):
 
 # class MenuItemForm(forms.Form):
 #     menu = forms.ModelChoiceField(queryset=Menu.objects.all())
-#     foodtype = forms.ModelChoiceField(queryset=FoodType.objects.all())
+#     course = forms.ModelChoiceField(queryset=Course.objects.all())
 #     food = forms.ModelChoiceField(queryset=Food.objects.all())
 #     created_by = forms.ModelChoiceField(queryset=User.objects.all())
 
 # def clean(self):
 #     cleaned_data = super(MenuItemForm, self).clean()
 #     menu = cleaned_data.get("menu")
-#     foodtype = cleaned_data.get("foodtype")
+#     course = cleaned_data.get("course")
 #     food = cleaned_data.get("food")
 # if not name and not email and not message:
 #     raise forms.ValidationError("You have to write something!")
@@ -43,7 +43,7 @@ class MenuItemForm(forms.ModelForm):
     class Meta:
         model = MenuItem
         fields = "__all__"
-        # exclude = ["foodtype", "food"]
+        # exclude = ["course", "food"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

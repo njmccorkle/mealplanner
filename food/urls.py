@@ -6,7 +6,7 @@ from .apiviews import *
 from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
-router.register(r"foodtype", FoodTypeViewSet)
+router.register(r"course", CourseViewSet)
 router.register(r"food", FoodViewSet)
 
 urlpatterns = [
@@ -21,19 +21,19 @@ urlpatterns = [
         create_food_form,
         name="create-food-form",
     ),
-    path("manage_foodtypes/", manage_foodtypes, name="manage-foodtypes"),
-    path("htmx/foodtype/<int:pk>/", detail_foodtype, name="detail-foodtype"),
-    path("htmx/foodtype/<int:pk>/update/", update_foodtype, name="update-foodtype"),
+    path("manage_courses/", manage_courses, name="manage-courses"),
+    path("htmx/course/<int:pk>/", detail_course, name="detail-course"),
+    path("htmx/course/<int:pk>/update/", update_course, name="update-course"),
     path(
-        "htmx/create-foodtype-form/",
-        create_foodtype_form,
-        name="create-foodtype-form",
+        "htmx/create-course-form/",
+        create_course_form,
+        name="create-course-form",
     ),
-    path("htmx/foodtype/<int:pk>/delete/", delete_foodtype, name="delete-foodtype"),
+    path("htmx/course/<int:pk>/delete/", delete_course, name="delete-course"),
     path(
-        "htmx/foodtype/foodtype-top-foods/<int:pk>",
+        "htmx/course/course-top-foods/<int:pk>",
         get_top_foods,
-        name="foodtype-top-foods",
+        name="course-top-foods",
     ),
     path("api/", include(router.urls)),
 ]
