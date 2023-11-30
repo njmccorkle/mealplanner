@@ -15,10 +15,17 @@ from django.urls import reverse_lazy
 # from .forms import FoodDefForm, CourseDefForm
 
 
-class CourseDefList(ListView):
-    model = CourseDef
-    template_name = "coursedef_list.html"
-    context_object_name = "courdefs"
+def CourseDefList(request):
+    print(f"CourseDefList")
+    coursedefs = CourseDef.objects.all()  # .order_by('-name')
+    print(f"coursedefs #: {len(coursedefs)}")
+    return render(request, "coursedef_list.html", {"coursedefs": coursedefs})
+
+
+# class CourseDefList(ListView):
+#     model = CourseDef
+#     template_name = "coursedef_list.html"
+#     context_object_name = "courdefs"
 
 
 class CourseDefDetail(DetailView):

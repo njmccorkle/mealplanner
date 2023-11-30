@@ -35,7 +35,7 @@ urlpatterns = [
     #     name="course-top-foods",
     # ),
     path("api/", include(router.urls)),
-    path("", views.CourseDefList.as_view(), name="coursedef_list"),
+    path("", views.CourseDefList, name="coursedef_list"),
     path("coursedef/create", views.CourseDefCreate.as_view(), name="coursedef_create"),
     path(
         "coursedef-detail/<int:pk>",
