@@ -1,8 +1,0 @@
-{
-  "recommendations": [
-    "batisteo.vscode-django",
-    "monosans.djlint",
-    "ms-python.black-formatter",
-    "alexcvzz.vscode-sqlite"
-  ]
-}
