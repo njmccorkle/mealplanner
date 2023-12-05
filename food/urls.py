@@ -35,20 +35,21 @@ urlpatterns = [
     #     name="course-top-foods",
     # ),
     path("api/", include(router.urls)),
-    path("", views.CourseDefList, name="coursedef_list"),
-    path("coursedef/create", views.CourseDefCreate.as_view(), name="coursedef_create"),
+    path("coursedef", views.CourseDefList.as_view(), name="coursedef_list"),
+    path("coursedef/new", views.CourseDefCreate.as_view(), name="coursedef_create"),
+    # not currently used
+    # path(
+    #     "coursedef/<int:pk>",
+    #     views.CourseDefDetail.as_view(),
+    #     name="coursedef_detail",
+    # ),
     path(
-        "coursedef-detail/<int:pk>",
-        views.CourseDefDetail.as_view(),
-        name="coursedef_detail",
-    ),
-    path(
-        "coursedef-update/<int:pk>",
+        "coursedef/edit/<int:pk>",
         views.CourseDefUpdate.as_view(),
         name="coursedef_update",
     ),
     path(
-        "coursedef-delete/<int:pk>",
+        "coursedef/delete/<int:pk>",
         views.CourseDefDelete.as_view(),
         name="coursedef_delete",
     ),

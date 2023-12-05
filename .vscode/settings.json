@@ -2,5 +2,8 @@
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
-    "python.formatting.provider": "none"
+    "files.associations": {
+        "**/templates/**.html": "django-html",
+        "**requirements{/**,*}.{txt,in}": "pip-requirements"
+    },
 }
