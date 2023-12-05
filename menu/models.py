@@ -1,7 +1,7 @@
 from django.db import models
 from base.models import MealPlannerBaseModel
 from meal.models import Meal
-from food.models import FoodDef, Course
+from food.models import Food, Course
 import calendar
 
 

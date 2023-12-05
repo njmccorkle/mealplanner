@@ -19,10 +19,10 @@ class Course(MealPlannerBaseModel):
         return self.Meta.verbose_name
 
 
-class FoodDef(MealPlannerBaseModel):
+class Food(MealPlannerBaseModel):
     class Meta:
-        verbose_name = "Food Def"
-        verbose_name_plural = "Food Defs"
+        verbose_name = "Food"
+        verbose_name_plural = "Foods"
 
     name = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)

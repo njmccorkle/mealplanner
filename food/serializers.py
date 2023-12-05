@@ -1,16 +1,16 @@
 from rest_framework import serializers
-from .models import Course, FoodDef
+from .models import Course, Food
 
 
-class FoodDefSerializer(serializers.ModelSerializer):
+class FoodSerializer(serializers.ModelSerializer):
     class Meta:
-        model = FoodDef
+        model = Food
         fields = "__all__"
         # fields = ("name", "description", "foodtype")
 
 
 class CourseSerializer(serializers.ModelSerializer):
-    foods = FoodDefSerializer(many=True, read_only=True)
+    foods = FoodSerializer(many=True, read_only=True)
 
     class Meta:
         model = Course

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <h1>Food Definitions</h1>
+  <a href="{% url 'food_create' %}" class="btn btn-dark">New Food</a>
+  <br>
+  <br>
+  <div class="w-75">
+    <ul class="list-group">
+      {% for f in food %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">{{ f.name }}</div>
+            <p class="text-muted mb-2">{{ f.description }}</p>
+            {% comment %} <p class="text-muted mb-2">X foods assigned</p> {% endcomment %}
+          </div>
+          <a href="{% url 'food_update' f.id %}" class="btn btn-dark">Edit Food</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock content %}

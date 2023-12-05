@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
 router.register(r"course", apiviews.CourseViewSet)
-router.register(r"foodDef", apiviews.FoodDefViewSet)
+router.register(r"foodDef", apiviews.FoodViewSet)
 
 urlpatterns = [
     # path("", TemplateView.as_view(template_name="food/home.html")),
@@ -34,6 +34,7 @@ urlpatterns = [
     #     get_top_foods,
     #     name="course-top-foods",
     # ),
+    path("", TemplateView.as_view(template_name="home.html"), name="home"),
     path("api/", include(router.urls)),
     path("course", views.CourseList.as_view(), name="course_list"),
     path("course/new", views.CourseCreate.as_view(), name="course_create"),
@@ -52,5 +53,24 @@ urlpatterns = [
         "course/delete/<int:pk>",
         views.CourseDelete.as_view(),
         name="course_delete",
+    ),
+    ######
+    path("food", views.FoodList.as_view(), name="food_list"),
+    path("food/new", views.FoodCreate.as_view(), name="food_create"),
+    # not currently used
+    # path(
+    #     "course/<int:pk>",
+    #     views.CourseDetail.as_view(),
+    #     name="course_detail",
+    # ),
+    path(
+        "food/edit/<int:pk>",
+        views.FoodUpdate.as_view(),
+        name="food_update",
+    ),
+    path(
+        "food/delete/<int:pk>",
+        views.FoodDelete.as_view(),
+        name="food_delete",
     ),
 ]

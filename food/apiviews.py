@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .serializers import CourseSerializer, FoodDefSerializer
-from .models import Course, FoodDef
+from .serializers import CourseSerializer, FoodSerializer
+from .models import Course, Food
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -8,6 +8,6 @@ class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
 
 
-class FoodDefViewSet(viewsets.ModelViewSet):
-    queryset = FoodDef.objects.all()
-    serializer_class = FoodDefSerializer
+class FoodViewSet(viewsets.ModelViewSet):
+    queryset = Food.objects.all()
+    serializer_class = FoodSerializer

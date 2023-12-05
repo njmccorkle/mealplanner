@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     "django_bootstrap5",
     "rest_framework",
     "base.apps.BaseConfig",
-    "food.apps.FoodDefConfig",
+    "food.apps.FoodConfig",
     # "meal.apps.MealConfig",
     # "menu.apps.MenuConfig",
 ]

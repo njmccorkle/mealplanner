@@ -12,10 +12,14 @@
           <div class="ms-2 me-auto">
             <div class="fw-bold">{{ course.name }}</div>
             <p class="text-muted mb-2">{{ course.description }}</p>
-            <p class="text-muted mb-2">X foods assigned</p>
+            <p class="text-muted mb-2">{{ course.foods.all.count }} foods assigned</p>
           </div>
           <a href="{% url 'course_update' course.id %}" class="btn btn-dark">Edit Course Def</a>
         </li>
+        {% comment %} {% for food in course.foods.all %}
+          {{ food.name }}
+          <br>
+        {% endfor %} {% endcomment %}
       {% endfor %}
     </ul>
   </div>
