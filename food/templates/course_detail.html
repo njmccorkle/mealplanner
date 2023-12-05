@@ -7,15 +7,15 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          {% comment %} <h5 class="card-title">{{ coursedef.name|name }}</h5> {% endcomment %}
-          <h5 class="card-title">{{ coursedef.name }}</h5>
-          <p class="card-text">{{ coursedef.description }}</p>
-          <a href="{% url 'coursedef_update' coursedef.id %}"
+          {% comment %} <h5 class="card-title">{{ course.name|name }}</h5> {% endcomment %}
+          <h5 class="card-title">{{ course.name }}</h5>
+          <p class="card-text">{{ course.description }}</p>
+          <a href="{% url 'course_update' course.id %}"
              class="btn btn-warning rounded-1">Edit</a>
-          <a href="{% url 'coursedef_delete' coursedef.id %}"
+          <a href="{% url 'course_delete' course.id %}"
              class="btn btn-danger rounded-1">Delete</a>
           <p class="card-text">
-            <small class="text-muted">{{ coursedef.created_datetime }}</small>
+            <small class="text-muted">{{ course.created_datetime }}</small>
           </p>
         </div>
       </div>

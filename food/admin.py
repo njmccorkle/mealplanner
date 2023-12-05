@@ -1,11 +1,13 @@
 from django.contrib import admin
-from .models import FoodDef, CourseDef
+from .models import FoodDef, Course
 
 
 class FoodDefInlineAdmin(admin.TabularInline):
     model = FoodDef
 
-class CourseDefAdmin(admin.ModelAdmin):
+
+class CourseAdmin(admin.ModelAdmin):
     inlines = [FoodDefInlineAdmin]
 
-admin.site.register(CourseDef, CourseDefAdmin)
+
+admin.site.register(Course, CourseAdmin)

@@ -5,7 +5,7 @@ from . import views, apiviews
 from django.views.generic import TemplateView
 
 router = routers.DefaultRouter()
-router.register(r"courseDef", apiviews.CourseDefViewSet)
+router.register(r"course", apiviews.CourseViewSet)
 router.register(r"foodDef", apiviews.FoodDefViewSet)
 
 urlpatterns = [
@@ -35,22 +35,22 @@ urlpatterns = [
     #     name="course-top-foods",
     # ),
     path("api/", include(router.urls)),
-    path("coursedef", views.CourseDefList.as_view(), name="coursedef_list"),
-    path("coursedef/new", views.CourseDefCreate.as_view(), name="coursedef_create"),
+    path("course", views.CourseList.as_view(), name="course_list"),
+    path("course/new", views.CourseCreate.as_view(), name="course_create"),
     # not currently used
     # path(
-    #     "coursedef/<int:pk>",
-    #     views.CourseDefDetail.as_view(),
-    #     name="coursedef_detail",
+    #     "course/<int:pk>",
+    #     views.CourseDetail.as_view(),
+    #     name="course_detail",
     # ),
     path(
-        "coursedef/edit/<int:pk>",
-        views.CourseDefUpdate.as_view(),
-        name="coursedef_update",
+        "course/edit/<int:pk>",
+        views.CourseUpdate.as_view(),
+        name="course_update",
     ),
     path(
-        "coursedef/delete/<int:pk>",
-        views.CourseDefDelete.as_view(),
-        name="coursedef_delete",
+        "course/delete/<int:pk>",
+        views.CourseDelete.as_view(),
+        name="course_delete",
     ),
 ]

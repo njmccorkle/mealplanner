@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                {% comment %} <img src="{{ recipe.image.url }}" class="img-fluid rounded-start" alt="{{ recipe.title }}"> {% endcomment %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    {% comment %} <h2>Deleting {{ course.name }}</h2> {% endcomment %}
+                    <h4 class="text-danger-50 text-danger">Are you sure you want to delete {{ course.name }}?</h4>
+                    <form action="{% url 'course_delete' course.id %}" method="post">
+                        {% csrf_token %}
+                        <button href="{% url 'course_delete' course.id %}"
+                                class="btn btn-danger rounded-1">Yes, Delete</button>
+                        <a href="{% url 'course_list' %}" class="btn btn-light btn-sm rounded-1">Cancel</a>
+                    </form>
+                    <p class="mt-2">{{ course.description }}</p>
+                    <p class="card-text">
+                        <small class="text-muted">Created: {{ course.created_datetime }}</small>
+                        <br>
+                        <small class="text-muted">Last modified : {{ course.modified_datetime }}</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

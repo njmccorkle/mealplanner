@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from django.http import HttpResponse, HttpResponseNotAllowed
-from .models import FoodDef, CourseDef
+from .models import FoodDef, Course
 
 from django.views.generic import (
     ListView,
@@ -12,44 +12,44 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy
 
-# from .forms import FoodDefForm, CourseDefForm
+# from .forms import FoodDefForm, CourseForm
 
 
-# def CourseDefList(request):
-#     print(f"CourseDefList")
-#     coursedefs = CourseDef.objects.all()  # .order_by('-name')
-#     print(f"coursedefs #: {len(coursedefs)}")
-#     return render(request, "coursedef_list.html", {"coursedefs": coursedefs})
+# def CourseList(request):
+#     print(f"CourseList")
+#     courses = Course.objects.all()  # .order_by('-name')
+#     print(f"courses #: {len(courses)}")
+#     return render(request, "course_list.html", {"courses": courses})
 
 
-class CourseDefList(ListView):
-    model = CourseDef
-    template_name = "coursedef_list.html"
-    context_object_name = "coursedefs"
+class CourseList(ListView):
+    model = Course
+    template_name = "course_list.html"
+    context_object_name = "courses"
 
 
 # not currently used
-# class CourseDefDetail(DetailView):
-#     model = CourseDef
-#     template_name = "coursedef_detail.html"
-#     context_object_name = "coursedef"
+# class CourseDetail(DetailView):
+#     model = Course
+#     template_name = "course_detail.html"
+#     context_object_name = "course"
 
 
-class CourseDefCreate(CreateView):
-    model = CourseDef
-    template_name = "coursedef_form.html"
+class CourseCreate(CreateView):
+    model = Course
+    template_name = "course_form.html"
     fields = ["name", "description"]
-    success_url = reverse_lazy("coursedef_list")
+    success_url = reverse_lazy("course_list")
 
 
-class CourseDefUpdate(UpdateView):
-    model = CourseDef
-    template_name = "coursedef_form.html"
+class CourseUpdate(UpdateView):
+    model = Course
+    template_name = "course_form.html"
     fields = ["name", "description"]
-    success_url = reverse_lazy("coursedef_list")
+    success_url = reverse_lazy("course_list")
 
 
-class CourseDefDelete(DeleteView):
-    model = CourseDef
-    template_name = "coursedef_confirm_delete.html"
-    success_url = reverse_lazy("coursedef_list")
+class CourseDelete(DeleteView):
+    model = Course
+    template_name = "course_confirm_delete.html"
+    success_url = reverse_lazy("course_list")
