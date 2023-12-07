@@ -50,6 +50,7 @@ class FoodList(ListView):
     model = Food
     template_name = "food_list.html"
     context_object_name = "food"
+    ordering = ["course", "name"]
 
 
 class FoodCreate(CreateView):
