@@ -1,10 +1,12 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from django.http import HttpResponse, HttpResponseNotAllowed
-from .models import Menu, MenuItem
-from .forms import MenuForm, MenuItemForm
+from django.shortcuts import get_object_or_404, redirect, render
 from meal.models import Meal, MealItems
-from food.models import Food, Course
+
+from food.models import Course, Food
+
+from .forms import MenuForm, MenuItemForm
+from .models import Menu, MenuItem
 
 
 def create_menu_form(request):

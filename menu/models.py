@@ -1,8 +1,10 @@
-from django.db import models
-from base.models import MealPlannerBaseModel
-from meal.models import Meal
-from food.models import Food, Course
 import calendar
+
+from django.db import models
+from meal.models import Meal
+
+from base.models import MealPlannerBaseModel
+from food.models import Course, Food
 
 
 # A meal for a given menu (day)

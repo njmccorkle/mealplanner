@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from django.http import HttpResponse, HttpResponseNotAllowed
-from .models import Food, Course
-from .forms import FoodForm, CourseForm
+from django.shortcuts import get_object_or_404, redirect, render
+
+from .forms import CourseForm, FoodForm
+from .models import Course, Food
 
 
 def create_food(request, pk):

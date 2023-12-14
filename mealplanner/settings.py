@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "base.apps.BaseConfig",
     "food.apps.FoodConfig",
+    "debug_toolbar"
     # "meal.apps.MealConfig",
     # "menu.apps.MenuConfig",
 ]
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "mealplanner.urls"
@@ -73,6 +75,10 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 WSGI_APPLICATION = "mealplanner.wsgi.application"

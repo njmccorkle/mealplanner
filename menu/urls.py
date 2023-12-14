@@ -1,8 +1,8 @@
-from django.urls import path, include
+from django.urls import include, path
 from rest_framework import routers
-from .views import *
-from .apiviews import *
 
+from .apiviews import *
+from .views import *
 
 router = routers.DefaultRouter()
 router.register(r"menu", MenuViewSet)

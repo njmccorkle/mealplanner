@@ -1,6 +1,7 @@
-from django import forms
-from .models import Food, Course
 from crispy_forms.helper import FormHelper
+from django import forms
+
+from .models import Course, Food
 
 
 class FoodForm(forms.ModelForm):

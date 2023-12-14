@@ -1,8 +1,10 @@
-from django import forms
-from .models import Menu, MenuItem
-from food.models import Food, Course
 from crispy_forms.helper import FormHelper
+from django import forms
 from django.contrib.auth.models import User
+
+from food.models import Course, Food
+
+from .models import Menu, MenuItem
 
 
 class DateInput(forms.DateInput):

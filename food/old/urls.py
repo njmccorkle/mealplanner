@@ -1,9 +1,9 @@
-from django.urls import path, include
-from rest_framework import routers
-from .views import *
-from .apiviews import *
-
+from django.urls import include, path
 from django.views.generic import TemplateView
+from rest_framework import routers
+
+from .apiviews import *
+from .views import *
 
 router = routers.DefaultRouter()
 router.register(r"course", CourseViewSet)
