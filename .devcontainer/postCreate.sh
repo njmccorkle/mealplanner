@@ -1,2 +1,1 @@
-pip install --upgrade pip
-pip install --user -r /workspaces/mealplanner/requirements.txt
+make pip-install-dev

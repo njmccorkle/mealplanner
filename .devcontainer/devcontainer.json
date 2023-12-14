@@ -14,7 +14,8 @@
 				"batisteo.vscode-django",
 				"monosans.djlint",
 				"ms-python.black-formatter",
-				"alexcvzz.vscode-sqlite"
+				"alexcvzz.vscode-sqlite",
+				"ms-vscode.makefile-tools"
 			]
 		}
 	},
