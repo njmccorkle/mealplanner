@@ -1,6 +1,7 @@
-from django import forms
-from .models import Meal, MealItems
 from crispy_forms.helper import FormHelper
+from django import forms
+
+from .models import Meal, MealItems
 
 
 class MealForm(forms.ModelForm):

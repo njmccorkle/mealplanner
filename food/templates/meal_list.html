@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <h1>Meal Definitions</h1>
+  <a href="{% url 'meal_create' %}" class="btn btn-dark">New Meal</a>
+  <br>
+  <br>
+  <div class="w-75">
+    <ul class="list-group">
+      {% for meal in meals %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">{{ meal.name }}</div>
+            {% comment %} <p class="text-muted mb-2">{{ course.description }}</p> {% endcomment %}
+            {% comment %} <p class="text-muted mb-2">{{ meal.courses.all.count }} courses assigned</p> {% endcomment %}
+          </div>
+          <a href="{% url 'meal_update' meal.id %}" class="btn btn-dark">Edit Meal Def</a>
+        </li>
+        {% comment %} {% for food in course.foods.all %}
+          {{ food.name }}
+          <br>
+        {% endfor %} {% endcomment %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock content %}

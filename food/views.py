@@ -1,16 +1,12 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from django.http import HttpResponse, HttpResponseNotAllowed
-from .models import Food, Course
-
-from django.views.generic import (
-    ListView,
-    DetailView,
-    CreateView,
-    UpdateView,
-    DeleteView,
-)
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  UpdateView)
+
+from .forms import MealForm
+from .models import Course, Food, Meal
 
 
 class CourseList(ListView):
@@ -71,6 +67,36 @@ class FoodDelete(DeleteView):
     model = Food
     template_name = "food_confirm_delete.html"
     success_url = reverse_lazy("food_list")
+
+
+class MealList(ListView):
+    model = Meal
+    template_name = "meal_list.html"
+    context_object_name = "meals"
+    ordering = ["name"]
+
+
+class MealCreate(CreateView):
+    model = Meal
+    template_name = "meal_form.html"
+    form_class = MealForm
+    # fields = ["name", "description", "course"]
+    # fields = "__all__"
+    success_url = reverse_lazy("meal_list")
+
+
+class MealUpdate(UpdateView):
+    model = Meal
+    template_name = "meal_form.html"
+    # fields = ["name", "description", "course"]
+    fields = "__all__"
+    success_url = reverse_lazy("meal_list")
+
+
+class MealDelete(DeleteView):
+    model = Meal
+    template_name = "meal_confirm_delete.html"
+    success_url = reverse_lazy("meal_list")
 
 
 # https://medium.com/swlh/django-forms-for-many-to-many-fields-d977dec4b024

@@ -1,6 +1,7 @@
 from rest_framework import viewsets
-from .serializers import MealSerializer, MealItemSerializer
+
 from .models import Meal, MealItems
+from .serializers import MealItemSerializer, MealSerializer
 
 
 class MealViewSet(viewsets.ModelViewSet):

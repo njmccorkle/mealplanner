@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect, get_object_or_404
 from django import forms
 from django.http import HttpResponse, HttpResponseNotAllowed
-from .models import Meal, MealItems
-from .forms import MealForm, MealItemForm
+from django.shortcuts import get_object_or_404, redirect, render
 
+from .forms import MealForm, MealItemForm
+from .models import Meal, MealItems
 
 # def create_meal_form(request):
 #     print(f"---create_meal_form")

@@ -1,8 +1,8 @@
-from django.urls import path, include
-from rest_framework import routers
-from . import views, apiviews
-
+from django.urls import include, path
 from django.views.generic import TemplateView
+from rest_framework import routers
+
+from . import apiviews, views
 
 router = routers.DefaultRouter()
 router.register(r"course", apiviews.CourseViewSet)
@@ -59,9 +59,9 @@ urlpatterns = [
     path("food/new", views.FoodCreate.as_view(), name="food_create"),
     # not currently used
     # path(
-    #     "course/<int:pk>",
-    #     views.CourseDetail.as_view(),
-    #     name="course_detail",
+    #     "food/<int:pk>",
+    #     views.FoodDetail.as_view(),
+    #     name="food_detail",
     # ),
     path(
         "food/edit/<int:pk>",
@@ -72,5 +72,17 @@ urlpatterns = [
         "food/delete/<int:pk>",
         views.FoodDelete.as_view(),
         name="food_delete",
+    ),
+    path("meal", views.MealList.as_view(), name="meal_list"),
+    path("meal/new", views.MealCreate.as_view(), name="meal_create"),
+    path(
+        "meal/edit/<int:pk>",
+        views.MealUpdate.as_view(),
+        name="meal_update",
+    ),
+    path(
+        "meal/delete/<int:pk>",
+        views.MealDelete.as_view(),
+        name="meal_delete",
     ),
 ]

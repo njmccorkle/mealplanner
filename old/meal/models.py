@@ -1,7 +1,8 @@
-from django.db import models
 from django.contrib.auth.models import User
-from food.models import Course
+from django.db import models
+
 from base.models import MealPlannerBaseModel
+from food.models import Course
 
 
 # defines the meals that will be planned - supper, lunch, breakfast, dinner, etc

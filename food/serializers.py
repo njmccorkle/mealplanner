@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Course, Food
+
+from .models import Course, Food, Meal
 
 
 class FoodSerializer(serializers.ModelSerializer):
@@ -16,3 +17,10 @@ class CourseSerializer(serializers.ModelSerializer):
         model = Course
         fields = "__all__"
         # fields = ("name", "description", "foods")
+
+
+class MealSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Meal
+        fields = "__all__"
+        # fields = ("name", "description")
