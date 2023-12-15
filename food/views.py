@@ -2,8 +2,13 @@ from django import forms
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
-                                  UpdateView)
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
+)
 
 from .forms import MealForm
 from .models import Course, Food, Meal
@@ -87,6 +92,7 @@ class MealCreate(CreateView):
 
 class MealUpdate(UpdateView):
     model = Meal
+    form = MealForm
     template_name = "meal_form.html"
     # fields = ["name", "description", "course"]
     fields = "__all__"
