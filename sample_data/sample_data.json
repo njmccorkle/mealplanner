@@ -1,1 +1,827 @@
-[{"model": "food.course", "pk": 1, "fields": {"created_datetime": "2023-11-29T06:33:30.747Z", "modified_datetime": "2023-12-04T05:45:24.213Z", "created_by": 1, "name": "Entre", "description": "The main event"}}, {"model": "food.course", "pk": 2, "fields": {"created_datetime": "2023-11-29T06:33:43.631Z", "modified_datetime": "2023-11-29T06:33:43.631Z", "created_by": 1, "name": "Carb", "description": "bready stuff"}}, {"model": "food.course", "pk": 3, "fields": {"created_datetime": "2023-11-29T06:34:20.443Z", "modified_datetime": "2023-11-29T06:34:20.443Z", "created_by": 1, "name": "Dessert", "description": ""}}, {"model": "food.course", "pk": 4, "fields": {"created_datetime": "2023-11-29T06:34:28.996Z", "modified_datetime": "2023-11-29T06:34:28.996Z", "created_by": 1, "name": "Vegetable", "description": ""}}, {"model": "food.food", "pk": 1, "fields": {"created_datetime": "2023-11-29T06:34:44.190Z", "modified_datetime": "2023-12-07T06:18:48.862Z", "created_by": 1, "name": "Cheeseburgers", "description": "", "course": 1}}, {"model": "food.food", "pk": 2, "fields": {"created_datetime": "2023-11-29T06:34:57.802Z", "modified_datetime": "2023-11-29T06:34:57.802Z", "created_by": 1, "name": "Chocolate cake", "description": "", "course": 3}}, {"model": "food.food", "pk": 3, "fields": {"created_datetime": "2023-11-29T06:35:06.372Z", "modified_datetime": "2023-11-29T06:35:06.372Z", "created_by": 1, "name": "Devil's food cake", "description": "", "course": 3}}, {"model": "food.food", "pk": 4, "fields": {"created_datetime": "2023-11-29T06:35:15.218Z", "modified_datetime": "2023-11-29T06:35:15.218Z", "created_by": 1, "name": "Vanilla ice cream", "description": "", "course": 3}}, {"model": "food.food", "pk": 5, "fields": {"created_datetime": "2023-11-29T06:35:24.750Z", "modified_datetime": "2023-11-29T06:35:24.750Z", "created_by": 1, "name": "Canned corn", "description": "", "course": 4}}, {"model": "food.food", "pk": 6, "fields": {"created_datetime": "2023-11-29T06:35:33.366Z", "modified_datetime": "2023-11-29T06:35:33.366Z", "created_by": 1, "name": "Canned peas", "description": "", "course": 4}}, {"model": "food.food", "pk": 7, "fields": {"created_datetime": "2023-11-29T06:35:43.181Z", "modified_datetime": "2023-11-29T06:35:43.181Z", "created_by": 1, "name": "Canned green beans", "description": "", "course": 4}}, {"model": "food.food", "pk": 8, "fields": {"created_datetime": "2023-11-29T06:35:51.617Z", "modified_datetime": "2023-11-29T06:35:51.617Z", "created_by": 1, "name": "Frozen mixed veggies", "description": "", "course": 4}}, {"model": "food.food", "pk": 9, "fields": {"created_datetime": "2023-11-29T06:35:58.328Z", "modified_datetime": "2023-11-29T06:35:58.328Z", "created_by": 1, "name": "Frozen green beans", "description": "", "course": 4}}, {"model": "food.food", "pk": 10, "fields": {"created_datetime": "2023-11-29T06:36:05.507Z", "modified_datetime": "2023-11-29T06:36:05.507Z", "created_by": 1, "name": "Frozen peas", "description": "", "course": 4}}, {"model": "food.food", "pk": 11, "fields": {"created_datetime": "2023-11-29T06:36:12.445Z", "modified_datetime": "2023-11-29T06:36:12.445Z", "created_by": 1, "name": "Garlic bread", "description": "", "course": 2}}, {"model": "food.food", "pk": 12, "fields": {"created_datetime": "2023-11-29T06:36:18.608Z", "modified_datetime": "2023-11-29T06:36:18.608Z", "created_by": 1, "name": "Toast", "description": "", "course": 2}}, {"model": "food.food", "pk": 13, "fields": {"created_datetime": "2023-11-29T06:36:28.429Z", "modified_datetime": "2023-11-29T06:36:28.429Z", "created_by": 1, "name": "Baked potato", "description": "", "course": 2}}, {"model": "food.food", "pk": 14, "fields": {"created_datetime": "2023-11-29T06:36:36.225Z", "modified_datetime": "2023-11-29T06:36:36.225Z", "created_by": 1, "name": "French fries", "description": "", "course": 2}}, {"model": "food.food", "pk": 15, "fields": {"created_datetime": "2023-11-29T06:36:43.031Z", "modified_datetime": "2023-11-29T06:36:43.031Z", "created_by": 1, "name": "Tots", "description": "", "course": 2}}, {"model": "food.food", "pk": 16, "fields": {"created_datetime": "2023-11-29T06:36:51.033Z", "modified_datetime": "2023-11-29T06:36:51.033Z", "created_by": 1, "name": "Twice-baked potatoes", "description": "", "course": 2}}, {"model": "food.food", "pk": 17, "fields": {"created_datetime": "2023-11-29T06:36:57.694Z", "modified_datetime": "2023-12-07T06:18:55.705Z", "created_by": 1, "name": "Meatloaf", "description": "", "course": 1}}, {"model": "food.food", "pk": 18, "fields": {"created_datetime": "2023-11-29T06:37:08.517Z", "modified_datetime": "2023-12-07T06:34:48.986Z", "created_by": 1, "name": "Beef Tacos", "description": "", "course": 1}}, {"model": "food.food", "pk": 19, "fields": {"created_datetime": "2023-11-29T06:37:16.977Z", "modified_datetime": "2023-11-29T06:37:16.977Z", "created_by": 1, "name": "Chicken tacos", "description": "", "course": 1}}, {"model": "food.food", "pk": 20, "fields": {"created_datetime": "2023-11-29T06:37:24.132Z", "modified_datetime": "2023-11-29T06:37:24.132Z", "created_by": 1, "name": "Chicken fajitas", "description": "", "course": 1}}, {"model": "food.food", "pk": 21, "fields": {"created_datetime": "2023-11-29T06:37:30.948Z", "modified_datetime": "2023-11-29T06:37:30.948Z", "created_by": 1, "name": "Quesadillas", "description": "", "course": 1}}, {"model": "food.food", "pk": 22, "fields": {"created_datetime": "2023-11-29T06:37:40.784Z", "modified_datetime": "2023-11-29T06:37:40.784Z", "created_by": 1, "name": "Spaghetti and meat sauce", "description": "", "course": 1}}, {"model": "food.food", "pk": 23, "fields": {"created_datetime": "2023-11-29T06:37:50.833Z", "modified_datetime": "2023-11-29T06:37:50.833Z", "created_by": 1, "name": "Chicken alfredo", "description": "", "course": 1}}, {"model": "food.food", "pk": 24, "fields": {"created_datetime": "2023-11-29T06:37:58.516Z", "modified_datetime": "2023-11-29T06:37:58.516Z", "created_by": 1, "name": "Chicken and rice", "description": "", "course": 1}}, {"model": "food.food", "pk": 25, "fields": {"created_datetime": "2023-11-29T06:38:06.213Z", "modified_datetime": "2023-11-29T06:38:06.213Z", "created_by": 1, "name": "Lasagna casserole", "description": "", "course": 1}}, {"model": "food.food", "pk": 26, "fields": {"created_datetime": "2023-11-29T06:38:12.398Z", "modified_datetime": "2023-11-29T06:38:12.398Z", "created_by": 1, "name": "Chipped beef", "description": "", "course": 1}}, {"model": "food.food", "pk": 27, "fields": {"created_datetime": "2023-11-29T06:38:22.030Z", "modified_datetime": "2023-11-29T06:38:22.030Z", "created_by": 1, "name": "Hamburger corn casserole", "description": "", "course": 1}}, {"model": "food.food", "pk": 28, "fields": {"created_datetime": "2023-11-29T06:38:29.518Z", "modified_datetime": "2023-11-29T06:38:29.518Z", "created_by": 1, "name": "Brats", "description": "", "course": 1}}, {"model": "food.food", "pk": 29, "fields": {"created_datetime": "2023-11-29T06:38:36.813Z", "modified_datetime": "2023-11-29T06:38:36.814Z", "created_by": 1, "name": "Grilled chicken breast", "description": "", "course": 1}}, {"model": "food.food", "pk": 30, "fields": {"created_datetime": "2023-11-29T06:38:43.745Z", "modified_datetime": "2023-11-29T06:38:43.745Z", "created_by": 1, "name": "Homemade chicken nuggets", "description": "", "course": 1}}, {"model": "food.food", "pk": 32, "fields": {"created_datetime": "2023-12-08T05:34:32.641Z", "modified_datetime": "2023-12-08T05:35:00.802Z", "created_by": 1, "name": "test food", "description": "", "course": null}}, {"model": "food.meal", "pk": 2, "fields": {"created_datetime": "2023-12-08T06:08:26.250Z", "modified_datetime": "2023-12-12T06:37:36.291Z", "created_by": 1, "name": "Supper", "description": "", "courses": [1, 2]}}, {"model": "food.meal", "pk": 3, "fields": {"created_datetime": "2023-12-08T06:08:45.215Z", "modified_datetime": "2023-12-08T06:08:45.215Z", "created_by": 1, "name": "test meal", "description": "", "courses": []}}]
+[
+    {
+        "model": "food.food",
+        "pk": 1,
+        "fields": {
+            "created_datetime": "2023-11-29T06:34:44.190Z",
+            "modified_datetime": "2023-12-17T19:51:23.843Z",
+            "created_by": 1,
+            "name": "Cheeseburgers",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 2,
+        "fields": {
+            "created_datetime": "2023-11-29T06:34:57.802Z",
+            "modified_datetime": "2023-11-29T06:34:57.802Z",
+            "created_by": 1,
+            "name": "Chocolate cake",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 3,
+        "fields": {
+            "created_datetime": "2023-11-29T06:35:06.372Z",
+            "modified_datetime": "2023-11-29T06:35:06.372Z",
+            "created_by": 1,
+            "name": "Devil's food cake",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 4,
+        "fields": {
+            "created_datetime": "2023-11-29T06:35:15.218Z",
+            "modified_datetime": "2023-11-29T06:35:15.218Z",
+            "created_by": 1,
+            "name": "Vanilla ice cream",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 5,
+        "fields": {
+            "created_datetime": "2023-11-29T06:35:24.750Z",
+            "modified_datetime": "2023-12-19T14:36:01.937Z",
+            "created_by": 1,
+            "name": "Canned corn",
+            "description": "onsectetur adipiscing elit."
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 6,
+        "fields": {
+            "created_datetime": "2023-11-29T06:35:33.366Z",
+            "modified_datetime": "2023-12-19T14:36:09.644Z",
+            "created_by": 1,
+            "name": "Canned peas",
+            "description": "Sed at dui ut mauris egestas sagit"
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 7,
+        "fields": {
+            "created_datetime": "2023-11-29T06:35:43.181Z",
+            "modified_datetime": "2023-11-29T06:35:43.181Z",
+            "created_by": 1,
+            "name": "Canned green beans",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 8,
+        "fields": {
+            "created_datetime": "2023-11-29T06:35:51.617Z",
+            "modified_datetime": "2023-11-29T06:35:51.617Z",
+            "created_by": 1,
+            "name": "Frozen mixed veggies",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 9,
+        "fields": {
+            "created_datetime": "2023-11-29T06:35:58.328Z",
+            "modified_datetime": "2023-11-29T06:35:58.328Z",
+            "created_by": 1,
+            "name": "Frozen green beans",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 10,
+        "fields": {
+            "created_datetime": "2023-11-29T06:36:05.507Z",
+            "modified_datetime": "2023-12-19T14:36:16.330Z",
+            "created_by": 1,
+            "name": "Frozen peas",
+            "description": "Vestibulum mi tortor,"
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 11,
+        "fields": {
+            "created_datetime": "2023-11-29T06:36:12.445Z",
+            "modified_datetime": "2023-11-29T06:36:12.445Z",
+            "created_by": 1,
+            "name": "Garlic bread",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 12,
+        "fields": {
+            "created_datetime": "2023-11-29T06:36:18.608Z",
+            "modified_datetime": "2023-11-29T06:36:18.608Z",
+            "created_by": 1,
+            "name": "Toast",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 14,
+        "fields": {
+            "created_datetime": "2023-11-29T06:36:36.225Z",
+            "modified_datetime": "2023-12-19T03:43:53.014Z",
+            "created_by": 1,
+            "name": "French fries",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 15,
+        "fields": {
+            "created_datetime": "2023-11-29T06:36:43.031Z",
+            "modified_datetime": "2023-11-29T06:36:43.031Z",
+            "created_by": 1,
+            "name": "Tots",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 16,
+        "fields": {
+            "created_datetime": "2023-11-29T06:36:51.033Z",
+            "modified_datetime": "2023-11-29T06:36:51.033Z",
+            "created_by": 1,
+            "name": "Twice-baked potatoes",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 17,
+        "fields": {
+            "created_datetime": "2023-11-29T06:36:57.694Z",
+            "modified_datetime": "2023-12-07T06:18:55.705Z",
+            "created_by": 1,
+            "name": "Meatloaf",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 18,
+        "fields": {
+            "created_datetime": "2023-11-29T06:37:08.517Z",
+            "modified_datetime": "2023-12-19T14:34:29.692Z",
+            "created_by": 1,
+            "name": "Beef Tacos",
+            "description": "Beef tacos are the greatest thing ever"
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 19,
+        "fields": {
+            "created_datetime": "2023-11-29T06:37:16.977Z",
+            "modified_datetime": "2023-12-19T14:36:33.884Z",
+            "created_by": 1,
+            "name": "Chicken tacos",
+            "description": "Maecenas at risus sed libero pellentesque rutrum. Duis eu rhoncus ipsum, sit amet sagittis urna. Sed scelerisque ac mi in vulputate."
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 20,
+        "fields": {
+            "created_datetime": "2023-11-29T06:37:24.132Z",
+            "modified_datetime": "2023-11-29T06:37:24.132Z",
+            "created_by": 1,
+            "name": "Chicken fajitas",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 21,
+        "fields": {
+            "created_datetime": "2023-11-29T06:37:30.948Z",
+            "modified_datetime": "2023-11-29T06:37:30.948Z",
+            "created_by": 1,
+            "name": "Quesadillas",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 22,
+        "fields": {
+            "created_datetime": "2023-11-29T06:37:40.784Z",
+            "modified_datetime": "2023-11-29T06:37:40.784Z",
+            "created_by": 1,
+            "name": "Spaghetti and meat sauce",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 23,
+        "fields": {
+            "created_datetime": "2023-11-29T06:37:50.833Z",
+            "modified_datetime": "2023-11-29T06:37:50.833Z",
+            "created_by": 1,
+            "name": "Chicken alfredo",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 24,
+        "fields": {
+            "created_datetime": "2023-11-29T06:37:58.516Z",
+            "modified_datetime": "2023-12-19T14:36:24.212Z",
+            "created_by": 1,
+            "name": "Chicken and rice",
+            "description": "viverra nec commodo nec,"
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 25,
+        "fields": {
+            "created_datetime": "2023-11-29T06:38:06.213Z",
+            "modified_datetime": "2023-11-29T06:38:06.213Z",
+            "created_by": 1,
+            "name": "Lasagna casserole",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 26,
+        "fields": {
+            "created_datetime": "2023-11-29T06:38:12.398Z",
+            "modified_datetime": "2023-11-29T06:38:12.398Z",
+            "created_by": 1,
+            "name": "Chipped beef",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 27,
+        "fields": {
+            "created_datetime": "2023-11-29T06:38:22.030Z",
+            "modified_datetime": "2023-11-29T06:38:22.030Z",
+            "created_by": 1,
+            "name": "Hamburger corn casserole",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 28,
+        "fields": {
+            "created_datetime": "2023-11-29T06:38:29.518Z",
+            "modified_datetime": "2023-12-19T14:35:55.152Z",
+            "created_by": 1,
+            "name": "Brats",
+            "description": "orem ipsum dolor sit amet,"
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 29,
+        "fields": {
+            "created_datetime": "2023-11-29T06:38:36.813Z",
+            "modified_datetime": "2023-11-29T06:38:36.814Z",
+            "created_by": 1,
+            "name": "Grilled chicken breast",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 30,
+        "fields": {
+            "created_datetime": "2023-11-29T06:38:43.745Z",
+            "modified_datetime": "2023-11-29T06:38:43.745Z",
+            "created_by": 1,
+            "name": "Homemade chicken nuggets",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.food",
+        "pk": 32,
+        "fields": {
+            "created_datetime": "2023-12-08T05:34:32.641Z",
+            "modified_datetime": "2023-12-08T05:35:00.802Z",
+            "created_by": 1,
+            "name": "test food",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.course",
+        "pk": 1,
+        "fields": {
+            "created_datetime": "2023-11-29T06:33:30.747Z",
+            "modified_datetime": "2023-12-19T14:42:23.686Z",
+            "created_by": 1,
+            "name": "Entre",
+            "description": "Ut ultricies massa et metus malesuada, eget dapibus nulla finibus. Nullam in sollicitudin neque."
+        }
+    },
+    {
+        "model": "food.course",
+        "pk": 2,
+        "fields": {
+            "created_datetime": "2023-11-29T06:33:43.631Z",
+            "modified_datetime": "2023-12-19T14:41:17.745Z",
+            "created_by": 1,
+            "name": "Carb",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at dui ut mauris egestas sagittis in non urna. Vestibulum mi tortor, viverra nec commodo nec, elementum nec tellus."
+        }
+    },
+    {
+        "model": "food.course",
+        "pk": 3,
+        "fields": {
+            "created_datetime": "2023-11-29T06:34:20.443Z",
+            "modified_datetime": "2023-12-19T14:41:59.431Z",
+            "created_by": 1,
+            "name": "Dessert",
+            "description": "Maecenas at risus sed libero pellentesque rutrum. Duis eu rhoncus ipsum, sit amet sagittis urna. Sed scelerisque ac mi in vulputate."
+        }
+    },
+    {
+        "model": "food.course",
+        "pk": 4,
+        "fields": {
+            "created_datetime": "2023-11-29T06:34:28.996Z",
+            "modified_datetime": "2023-12-19T14:42:45.935Z",
+            "created_by": 1,
+            "name": "Vegetable",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.course",
+        "pk": 5,
+        "fields": {
+            "created_datetime": "2023-12-19T05:47:01.873Z",
+            "modified_datetime": "2023-12-19T05:47:01.873Z",
+            "created_by": 1,
+            "name": "New meal",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 4,
+        "fields": {
+            "created_datetime": "2023-12-17T19:17:45.648Z",
+            "modified_datetime": "2023-12-17T19:17:45.648Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 20
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 39,
+        "fields": {
+            "created_datetime": "2023-12-19T14:34:29.751Z",
+            "modified_datetime": "2023-12-19T14:34:29.751Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 18
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 42,
+        "fields": {
+            "created_datetime": "2023-12-19T14:36:09.685Z",
+            "modified_datetime": "2023-12-19T14:36:09.685Z",
+            "created_by": 1,
+            "course": 4,
+            "food": 6
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 43,
+        "fields": {
+            "created_datetime": "2023-12-19T14:36:33.926Z",
+            "modified_datetime": "2023-12-19T14:36:33.926Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 19
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 44,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:17.776Z",
+            "modified_datetime": "2023-12-19T14:41:17.776Z",
+            "created_by": 1,
+            "course": 2,
+            "food": 16
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 45,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:17.776Z",
+            "modified_datetime": "2023-12-19T14:41:17.776Z",
+            "created_by": 1,
+            "course": 2,
+            "food": 11
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 46,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:17.776Z",
+            "modified_datetime": "2023-12-19T14:41:17.776Z",
+            "created_by": 1,
+            "course": 2,
+            "food": 12
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 47,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:17.777Z",
+            "modified_datetime": "2023-12-19T14:41:17.777Z",
+            "created_by": 1,
+            "course": 2,
+            "food": 14
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 48,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:17.777Z",
+            "modified_datetime": "2023-12-19T14:41:17.777Z",
+            "created_by": 1,
+            "course": 2,
+            "food": 15
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 49,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:59.452Z",
+            "modified_datetime": "2023-12-19T14:41:59.452Z",
+            "created_by": 1,
+            "course": 3,
+            "food": 2
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 50,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:59.452Z",
+            "modified_datetime": "2023-12-19T14:41:59.452Z",
+            "created_by": 1,
+            "course": 3,
+            "food": 3
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 51,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:59.452Z",
+            "modified_datetime": "2023-12-19T14:41:59.452Z",
+            "created_by": 1,
+            "course": 3,
+            "food": 4
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 52,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 1
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 53,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 17
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 54,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 21
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 55,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 22
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 56,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 23
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 57,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 24
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 58,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 25
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 59,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 26
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 60,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 27
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 61,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 28
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 62,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 29
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 63,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.709Z",
+            "modified_datetime": "2023-12-19T14:42:23.709Z",
+            "created_by": 1,
+            "course": 1,
+            "food": 30
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 64,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:45.957Z",
+            "modified_datetime": "2023-12-19T14:42:45.957Z",
+            "created_by": 1,
+            "course": 4,
+            "food": 5
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 65,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:45.957Z",
+            "modified_datetime": "2023-12-19T14:42:45.957Z",
+            "created_by": 1,
+            "course": 4,
+            "food": 7
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 66,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:45.957Z",
+            "modified_datetime": "2023-12-19T14:42:45.957Z",
+            "created_by": 1,
+            "course": 4,
+            "food": 8
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 67,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:45.957Z",
+            "modified_datetime": "2023-12-19T14:42:45.957Z",
+            "created_by": 1,
+            "course": 4,
+            "food": 9
+        }
+    },
+    {
+        "model": "food.coursefoods",
+        "pk": 68,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:45.957Z",
+            "modified_datetime": "2023-12-19T14:42:45.957Z",
+            "created_by": 1,
+            "course": 4,
+            "food": 10
+        }
+    },
+    {
+        "model": "food.meal",
+        "pk": 2,
+        "fields": {
+            "created_datetime": "2023-12-08T06:08:26.250Z",
+            "modified_datetime": "2023-12-19T14:43:18.535Z",
+            "created_by": 1,
+            "name": "Supper",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.meal",
+        "pk": 3,
+        "fields": {
+            "created_datetime": "2023-12-08T06:08:45.215Z",
+            "modified_datetime": "2023-12-19T14:30:38.993Z",
+            "created_by": 1,
+            "name": "test meal",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.meal",
+        "pk": 4,
+        "fields": {
+            "created_datetime": "2023-12-17T05:26:39.605Z",
+            "modified_datetime": "2023-12-19T14:43:39.062Z",
+            "created_by": 1,
+            "name": "Lunch",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.meal",
+        "pk": 5,
+        "fields": {
+            "created_datetime": "2023-12-19T14:43:13.991Z",
+            "modified_datetime": "2023-12-19T14:43:13.991Z",
+            "created_by": 1,
+            "name": "Supper with dessert",
+            "description": ""
+        }
+    },
+    {
+        "model": "food.mealcourses",
+        "pk": 12,
+        "fields": {
+            "created_datetime": "2023-12-19T14:41:17.813Z",
+            "modified_datetime": "2023-12-19T14:41:17.813Z",
+            "created_by": 1,
+            "meal": 2,
+            "course": 2
+        }
+    },
+    {
+        "model": "food.mealcourses",
+        "pk": 14,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:23.735Z",
+            "modified_datetime": "2023-12-19T14:42:23.735Z",
+            "created_by": 1,
+            "meal": 2,
+            "course": 1
+        }
+    },
+    {
+        "model": "food.mealcourses",
+        "pk": 15,
+        "fields": {
+            "created_datetime": "2023-12-19T14:42:45.984Z",
+            "modified_datetime": "2023-12-19T14:42:45.984Z",
+            "created_by": 1,
+            "meal": 2,
+            "course": 4
+        }
+    },
+    {
+        "model": "food.mealcourses",
+        "pk": 16,
+        "fields": {
+            "created_datetime": "2023-12-19T14:43:14.013Z",
+            "modified_datetime": "2023-12-19T14:43:14.013Z",
+            "created_by": 1,
+            "meal": 5,
+            "course": 1
+        }
+    },
+    {
+        "model": "food.mealcourses",
+        "pk": 17,
+        "fields": {
+            "created_datetime": "2023-12-19T14:43:14.013Z",
+            "modified_datetime": "2023-12-19T14:43:14.013Z",
+            "created_by": 1,
+            "meal": 5,
+            "course": 2
+        }
+    },
+    {
+        "model": "food.mealcourses",
+        "pk": 18,
+        "fields": {
+            "created_datetime": "2023-12-19T14:43:14.013Z",
+            "modified_datetime": "2023-12-19T14:43:14.013Z",
+            "created_by": 1,
+            "meal": 5,
+            "course": 3
+        }
+    },
+    {
+        "model": "food.mealcourses",
+        "pk": 19,
+        "fields": {
+            "created_datetime": "2023-12-19T14:43:14.013Z",
+            "modified_datetime": "2023-12-19T14:43:14.013Z",
+            "created_by": 1,
+            "meal": 5,
+            "course": 4
+        }
+    }
+]
