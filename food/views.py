@@ -1,16 +1,13 @@
 from django import forms
+from django.db.models.functions import Lower
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import (
-    CreateView,
-    DeleteView,
-    DetailView,
-    ListView,
-    UpdateView,
-)
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  UpdateView)
 
-from .forms import MealForm
+from .forms import CourseForm, FoodForm, MealForm
+# , FoodForm, CourseForm
 from .models import Course, Food, Meal
 
 
@@ -29,15 +26,15 @@ class CourseList(ListView):
 
 class CourseCreate(CreateView):
     model = Course
+    form_class = CourseForm
     template_name = "course_form.html"
-    fields = ["name", "description"]
     success_url = reverse_lazy("course_list")
 
 
 class CourseUpdate(UpdateView):
     model = Course
+    form_class = CourseForm
     template_name = "course_form.html"
-    fields = ["name", "description"]
     success_url = reverse_lazy("course_list")
 
 
@@ -51,20 +48,19 @@ class FoodList(ListView):
     model = Food
     template_name = "food_list.html"
     context_object_name = "food"
-    ordering = ["course", "name"]
 
 
 class FoodCreate(CreateView):
     model = Food
+    form_class = FoodForm
     template_name = "food_form.html"
-    fields = ["name", "description", "course"]
     success_url = reverse_lazy("food_list")
 
 
 class FoodUpdate(UpdateView):
     model = Food
+    form_class = FoodForm
     template_name = "food_form.html"
-    fields = ["name", "description", "course"]
     success_url = reverse_lazy("food_list")
 
 
@@ -78,24 +74,19 @@ class MealList(ListView):
     model = Meal
     template_name = "meal_list.html"
     context_object_name = "meals"
-    ordering = ["name"]
 
 
 class MealCreate(CreateView):
     model = Meal
-    template_name = "meal_form.html"
     form_class = MealForm
-    # fields = ["name", "description", "course"]
-    # fields = "__all__"
+    template_name = "meal_form.html"
     success_url = reverse_lazy("meal_list")
 
 
 class MealUpdate(UpdateView):
     model = Meal
-    form = MealForm
+    form_class = MealForm
     template_name = "meal_form.html"
-    # fields = ["name", "description", "course"]
-    fields = "__all__"
     success_url = reverse_lazy("meal_list")
 
 

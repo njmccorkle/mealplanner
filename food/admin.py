@@ -7,12 +7,13 @@ class FoodAdmin(admin.ModelAdmin):
     model = Food
 
 
-class FoodInlineAdmin(admin.TabularInline):
-    model = Food
+# class FoodInlineAdmin(admin.TabularInline):
+#     model = Food
 
 
 class CourseAdmin(admin.ModelAdmin):
-    inlines = [FoodInlineAdmin]
+    # inlines = [FoodInlineAdmin]
+    model = Course
 
 
 class MealAdmin(admin.ModelAdmin):

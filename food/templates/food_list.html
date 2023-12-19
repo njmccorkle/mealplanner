@@ -1,27 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-  <h1>Food Definitions</h1>
-  <a href="{% url 'food_create' %}" class="btn btn-dark">New Food</a>
-  <br>
-  <br>
-  {% regroup food by course as course_list %}
-  <div class="w-75">
-    <ul class="list-group list-group-root">
-      {% for course in course_list %}
-        <h2>{{ course.grouper }}</h2>
-        <ul>
-          {% for f in course.list %}
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-              <div class="ms-2 me-auto">
-                <div class="fw-bold">{{ f.name }}</div>
-                <p class="text-muted mb-2">{{ f.description }}</p>
-              </div>
-              <a href="{% url 'food_update' f.id %}" class="btn btn-dark">Edit Food</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endfor %}
-    </ul>
+  <div class="container w-75">
+    <h1>Food Definitions</h1>
+    <a href="{% url 'food_create' %}" class="btn btn-dark">New Food</a>
+    <br>
+    <br>
+  </div>
+  <div class="container w-75">
+    {% for f in food %}
+      <div class="row list-group-item d-flex justify-content-between align-items-start">
+        <div class="col-sm text-right">
+          <div class="fw-bold">{{ f.name }}</div>
+          <p class="text-muted mb-2">{{ f.description }}</p>
+        </div>
+        <div class="col-sm text-start">
+          {% if f.courses.all %}
+            {% for c in f.courses.all %}
+              <a href="{% url 'course_update' c.id %}">{{ c.name }}</a>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="col-sm align-center text-end">
+          <a href="{% url 'food_update' f.id %}" class="btn btn-dark">Edit Food</a>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 {% endblock content %}

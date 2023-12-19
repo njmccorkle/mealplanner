@@ -13,6 +13,13 @@
             <div class="fw-bold">{{ course.name }}</div>
             <p class="text-muted mb-2">{{ course.description }}</p>
             <p class="text-muted mb-2">{{ course.foods.all.count }} foods assigned</p>
+            {% if course.meal_set.all %}
+              <p class="text-muted mb-2">Meals: {{ course.meal_set.all|join:", " }}</p>
+            {% else %}
+              <p>
+                <text class="text-muted mb-2">Meals: </text><text class="text-muted mb-2 fst-italic">None</text>
+              </p>
+            {% endif %}
           </div>
           <a href="{% url 'course_update' course.id %}" class="btn btn-dark">Edit Course Def</a>
         </li>
