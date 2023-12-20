@@ -1,26 +1,32 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-  <h1>Meal Definitions</h1>
-  <a href="{% url 'meal_create' %}" class="btn btn-dark">New Meal</a>
-  <br>
+  <div class="row w-75">
+    <div class="col">
+      <h1>Meals</h1>
+    </div>
+    <div class="col">
+      <a href="{% url 'meal_create' %}" class="btn btn-dark">New Meal</a>
+    </div>
+  </div>
   <br>
   <div class="w-75">
-    <ul class="list-group">
-      {% for meal in meals %}
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">{{ meal.name }}</div>
-            {% comment %} <p class="text-muted mb-2">{{ course.description }}</p> {% endcomment %}
-            {% comment %} <p class="text-muted mb-2">{{ meal.courses.all.count }} courses assigned</p> {% endcomment %}
-          </div>
-          <a href="{% url 'meal_update' meal.id %}" class="btn btn-dark">Edit Meal Def</a>
-        </li>
-        {% comment %} {% for food in course.foods.all %}
-          {{ food.name }}
-          <br>
-        {% endfor %} {% endcomment %}
-      {% endfor %}
-    </ul>
+    {% for meal in meals %}
+      <div class="row list-group-item d-flex justify-content-between align-items-start">
+        <div class="col-sm text-right">
+          <div class="fw-bold">{{ meal.name }}</div>
+          <p class="text-muted mb-2">{{ meal.description }}</p>
+        </div>
+        <div class="col-sm text-start">
+          <p class="text-muted mb-2">text 1</p>
+          <p class="text-muted mb-2">text 2</p>
+          {% comment %} <p class="text-muted mb-2">{{ course.description }}</p> {% endcomment %}
+          {% comment %} <p class="text-muted mb-2">{{ meal.courses.all.count }} courses assigned</p> {% endcomment %}
+        </div>
+        <div class="col-sm align-center text-end">
+          <a href="{% url 'meal_update' meal.id %}" class="btn btn-dark">Edit Meal</a>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 {% endblock content %}

@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-  <div class="container w-75">
-    <h1>Food Definitions</h1>
-    <a href="{% url 'food_create' %}" class="btn btn-dark">New Food</a>
-    <br>
-    <br>
+  <div class="row w-75">
+    <div class="col">
+      <h1>Foods</h1>
+    </div>
+    <div class="col">
+      <a href="{% url 'food_create' %}" class="btn btn-dark">New Food</a>
+    </div>
   </div>
-  <div class="container w-75">
+  <br>
+  <div class="w-75">
     {% for f in food %}
       <div class="row list-group-item d-flex justify-content-between align-items-start">
         <div class="col-sm text-right">

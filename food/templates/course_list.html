@@ -1,33 +1,34 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-  <h1>Course Definitions</h1>
-  <a href="{% url 'course_create' %}" class="btn btn-dark">New Course</a>
-  <br>
+  <div class="row w-75">
+    <div class="col">
+      <h1>Courses</h1>
+    </div>
+    <div class="col">
+      <a href="{% url 'course_create' %}" class="btn btn-dark">New Course</a>
+    </div>
+  </div>
   <br>
   <div class="w-75">
-    <ul class="list-group">
-      {% for course in courses %}
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-          <div class="ms-2 me-auto">
-            <div class="fw-bold">{{ course.name }}</div>
-            <p class="text-muted mb-2">{{ course.description }}</p>
-            <p class="text-muted mb-2">{{ course.foods.all.count }} foods assigned</p>
-            {% if course.meal_set.all %}
-              <p class="text-muted mb-2">Meals: {{ course.meal_set.all|join:", " }}</p>
-            {% else %}
-              <p>
-                <text class="text-muted mb-2">Meals: </text><text class="text-muted mb-2 fst-italic">None</text>
-              </p>
-            {% endif %}
-          </div>
-          <a href="{% url 'course_update' course.id %}" class="btn btn-dark">Edit Course Def</a>
-        </li>
-        {% comment %} {% for food in course.foods.all %}
-          {{ food.name }}
-          <br>
-        {% endfor %} {% endcomment %}
-      {% endfor %}
-    </ul>
+    {% for course in courses %}
+      <div class="row list-group-item d-flex justify-content-between align-items-start">
+        <div class="col-sm text-right">
+          <div class="fw-bold">{{ course.name }}</div>
+          <p class="text-muted mb-2">{{ course.description }}</p>
+        </div>
+        <div class="col-sm text-start">
+          {% if course.meals.all %}
+            {% for m in course.meals.all %}
+              <a href="{% url 'meal_update' m.id %}">{{ m.name }}</a>
+            {% endfor %}
+          {% endif %}
+          <p class="text-muted mb-2">{{ course.foods.all.count }} foods assigned</p>
+        </div>
+        <div class="col-sm align-center text-end">
+          <a href="{% url 'course_update' course.id %}" class="btn btn-dark">Edit Course</a>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 {% endblock content %}
