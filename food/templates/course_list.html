@@ -23,7 +23,8 @@
               <a href="{% url 'meal_update' m.id %}">{{ m.name }}</a>
             {% endfor %}
           {% endif %}
-          <p class="text-muted mb-2">{{ course.foods.all.count }} foods assigned</p>
+          {% comment %} <p class="text-muted mb-2">{{ course.foods.all.count }} foods assigned</p> {% endcomment %}
+          <p class="text-muted mb-2">{{ course.get_food_count }} foods assigned</p>
         </div>
         <div class="col-sm align-center text-end">
           <a href="{% url 'course_update' course.id %}" class="btn btn-dark">Edit Course</a>

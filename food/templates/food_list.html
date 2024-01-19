@@ -20,7 +20,7 @@
         <div class="col-sm text-start">
           {% if f.courses.all %}
             {% for c in f.courses.all %}
-              <a href="{% url 'course_update' c.id %}">{{ c.name }}</a>
+              <a href="{% url 'course_detail' c.id %}">{{ c.name }}</a>
             {% endfor %}
           {% endif %}
         </div>

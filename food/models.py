@@ -39,6 +39,9 @@ class Course(MealPlannerBaseModel):
     def get_name(self):
         return self.Meta.verbose_name
 
+    def get_food_count(self):
+        return self.foods.all().count()
+
 
 class CourseFoods(MealPlannerBaseModel):
     class Meta:
@@ -67,6 +70,12 @@ class Meal(MealPlannerBaseModel):
 
     def __str__(self):
         return self.name
+
+    def get_food_count(self):
+        food_count = 0
+        for course in self.courses.all():
+            food_count += course.get_food_count()
+        return food_count
 
 
 class MealCourses(MealPlannerBaseModel):

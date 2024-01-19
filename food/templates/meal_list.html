@@ -18,8 +18,22 @@
           <p class="text-muted mb-2">{{ meal.description }}</p>
         </div>
         <div class="col-sm text-start">
-          <p class="text-muted mb-2">text 1</p>
-          <p class="text-muted mb-2">text 2</p>
+          <p class="text-muted mb-2">
+            {{ meal.courses.all.count }}
+            {% if meal.courses.all.count == 1 %}
+              course assigned
+            {% else %}
+              courses assigned
+            {% endif %}
+          </p>
+          <p class="text-muted mb-2">
+            {{ meal.get_food_count }}
+            {% if meal.get_food_count == 1 %}
+              food assigned
+            {% else %}
+              foods assigned
+            {% endif %}
+          </p>
           {% comment %} <p class="text-muted mb-2">{{ course.description }}</p> {% endcomment %}
           {% comment %} <p class="text-muted mb-2">{{ meal.courses.all.count }} courses assigned</p> {% endcomment %}
         </div>

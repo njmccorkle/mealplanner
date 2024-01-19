@@ -39,11 +39,11 @@ urlpatterns = [
     path("course", views.CourseList.as_view(), name="course_list"),
     path("course/new", views.CourseCreate.as_view(), name="course_create"),
     # not currently used
-    # path(
-    #     "course/<int:pk>",
-    #     views.CourseDetail.as_view(),
-    #     name="course_detail",
-    # ),
+    path(
+        "course/<int:pk>",
+        views.CourseDetail.as_view(),
+        name="course_detail",
+    ),
     path(
         "course/edit/<int:pk>",
         views.CourseUpdate.as_view(),

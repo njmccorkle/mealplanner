@@ -3,10 +3,16 @@ from django.db.models.functions import Lower
 from django.http import HttpResponse, HttpResponseNotAllowed
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
-from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
-                                  UpdateView)
+from django.views.generic import (
+    CreateView,
+    DeleteView,
+    DetailView,
+    ListView,
+    UpdateView,
+)
 
 from .forms import CourseForm, FoodForm, MealForm
+
 # , FoodForm, CourseForm
 from .models import Course, Food, Meal
 
@@ -18,16 +24,16 @@ class CourseList(ListView):
 
 
 # not currently used
-# class CourseDetail(DetailView):
-#     model = Course
-#     template_name = "course_detail.html"
-#     context_object_name = "course"
+class CourseDetail(DetailView):
+    model = Course
+    template_name = "course_detail.html"
+    context_object_name = "course"
 
 
 class CourseCreate(CreateView):
     model = Course
     form_class = CourseForm
-    template_name = "course_form.html"
+    template_name = "course_detail.html"
     success_url = reverse_lazy("course_list")
 
 
